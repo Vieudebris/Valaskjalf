@@ -454,7 +454,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 04250000
     m_LastClickedID: 9476
-    m_ExpandedIDs: 00000000782500007a2500007c250000862500003a2600005426000010270000ea270000d2280000d4280000f0290000f2290000f4290000f6290000f8290000
+    m_ExpandedIDs: 000000007a2500007c2500007e25000088250000042600003c2600005626000012270000ec270000d4280000d6280000f2290000f4290000f6290000f8290000fa290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -479,24 +479,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 220}
+    scrollPos: {x: 0, y: 236}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000782500007a2500007c25000086250000022600003a2600005426000010270000ea270000d2280000d4280000f0290000f2290000f4290000f6290000f8290000
+    m_ExpandedIDs: 000000007a2500007c2500007e25000088250000042600003c2600005626000012270000ec270000d4280000d6280000f2290000f4290000f6290000f8290000fa290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: PlayerController2
-      m_OriginalName: PlayerController2
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 12162
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -598,9 +598,9 @@ MonoBehaviour:
     height: 425
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 822f0000
+    m_SelectedIDs: 9c060000
     m_LastClickedID: 0
-    m_ExpandedIDs: e2fbffff000000005c290000
+    m_ExpandedIDs: e2fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.118427075, y: -0.14392124, z: 0.017451322, w: 0.9822671}
     speed: 2
-    m_Value: {x: 0.118433505, y: -0.14392905, z: 0.01745227, w: 0.9823204}
+    m_Value: {x: -0.11842707, y: 0.14392123, z: -0.017451322, w: -0.982267}
   m_Size:
     m_Target: 20.688595
     speed: 2
