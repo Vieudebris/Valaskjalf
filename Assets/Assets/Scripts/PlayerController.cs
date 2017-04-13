@@ -57,25 +57,25 @@ public class PlayerController : MonoBehaviour {
             jumpedMidair = false;
             if (Input.GetButtonDown("Fire1"))
             {
-                Debug.Log("gl attack");
+                Debug.Log("l attack");
                 lightAttack = true;
-            } // Normal attacks
+            } // Light attacks
             if (Input.GetButtonDown("Fire2"))
             {
-                Debug.Log("gh attack");
+                Debug.Log("h attack");
                 heavyAttack = true;
                 attackCancel = true;
-            } //
+            } // Heavy attacks
             else
             {
                 attackCancel = false;
             }
             if (Input.GetButtonDown("Fire3"))
             {
-                Debug.Log("gs attack");
+                Debug.Log("s attack");
                 specialAttack = true;
                 attackCancel = true;
-            }
+            } // Special attacks
             else
             {
                 attackCancel = false;
@@ -94,10 +94,38 @@ public class PlayerController : MonoBehaviour {
                     rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
             } // Normal horizontal movement
         }
-        else // Midair decision tree
+        else
         {
-
-        }
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("j.l attack");
+                lightAttack = true;
+            } // Normal attacks
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Debug.Log("j.h attack");
+                heavyAttack = true;
+                attackCancel = true;
+            } // Heavy attacks
+            else
+            {
+                attackCancel = false;
+            }
+            if (Input.GetButtonDown("Fire3"))
+            {
+                Debug.Log("j.s attack");
+                specialAttack = true;
+                attackCancel = true;
+            } // Special attacks
+            else
+            {
+                attackCancel = false;
+            }
+            if (Input.GetButtonDown("Jump"))
+            {
+                jump = true;
+            }
+        } // Midair decision tree
     }
     void FixedUpdate()
     {
@@ -109,17 +137,9 @@ public class PlayerController : MonoBehaviour {
 
         if (lightAttack)
         {
-            
             NeutralLight();
         }
     }
-
-    /*
-    void OnCollisionEnter(Collision hit)
-    {
-        isGrounded = hit.gameObject.tag == "Ground";
-    }
-    */
 
     void SideInputCheck()
     {
@@ -129,10 +149,14 @@ public class PlayerController : MonoBehaviour {
 
         if (left)
         {
+            if (rb.transform.rotation.eulerAngles.y == 0 && isGrounded)
+                rb.GetComponent<Transform>().Rotate(Vector3.up * 180);
             facingSide = -1f;
         }
         else if (right)
         {
+            if (rb.transform.rotation.eulerAngles.y == 180 && isGrounded)
+                rb.GetComponent<Transform>().Rotate(Vector3.up * -180);
             facingSide = 1f;
         }
 
