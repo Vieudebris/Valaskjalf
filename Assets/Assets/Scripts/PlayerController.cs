@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
@@ -10,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameObject AA, AB, AC, BA, BB, BC;
 
-    private bool neutral, left, right, up, down, jump, lightAttack, heavyAttack;
+    private bool neutral, left, right, up, down, jump, lightAttack, heavyAttack, specialAttack;
 
     // Primary game physics interactions
     private Rigidbody rb;
@@ -20,9 +19,9 @@ public class PlayerController : MonoBehaviour {
     private float distToGround;
 
     // Secondary game physics interactions
-    private bool canMove = true;
-    private bool isMidair = false;
+    private bool isGrounded = true;
     private bool isAtRest = true;
+    private bool isAttacking = false;
     private bool jumpedMidair = false;
 
 
@@ -48,51 +47,57 @@ public class PlayerController : MonoBehaviour {
     }
     void Update ()
     {
-        distToGround = rb.GetComponentInChildren<Collider>().bounds.extents.y;
+        //distToGround = rb.GetComponentInChildren<Collider>().bounds.extents.y;
 
-        isMidair = rb.position.y > 1.095f;
-        isMidair = Physics.Raycast(transform.position, Vector3.down, distToGround + 1f);
-
-        lightAttack = Input.GetButtonDown("Fire1");
-        heavyAttack = Input.GetButtonDown("Fire2");
-        attackCancel = heavyAttack;
-        jump = Input.GetButtonDown("Jump");
-
+        isGrounded = rb.position.y < 1.095f;
         SideInputCheck();
 
-        // Managing Light Attacks WIP
-        /*if (Input.GetButtonDown("Fire1"))
-        {
-            Debug.Log("light attack");
-            lightAttack = true;
-        }*/
-
-
-        // Managing Heavy Attacks WIP
-        /*if (Input.GetButtonDown("Fire2"))
-        {
-            Debug.Log("heavy attack");
-            heavyAttack = true;
-            attackCancel = true;
-        }
-        else
-            attackCancel = false;*/
-
-        // Managing Jump WIP
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-        }
-
-        if (!isMidair && canMove)
+        if (isGrounded) // Grounded decision tree
         {
             jumpedMidair = false;
-            if (neutral)
-                rb.velocity = Vector3.zero;
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Debug.Log("gl attack");
+                lightAttack = true;
+            } // Normal attacks
+            if (Input.GetButtonDown("Fire2"))
+            {
+                Debug.Log("gh attack");
+                heavyAttack = true;
+                attackCancel = true;
+            } //
             else
-                rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
-        }
+            {
+                attackCancel = false;
+            }
+            if (Input.GetButtonDown("Fire3"))
+            {
+                Debug.Log("gs attack");
+                specialAttack = true;
+                attackCancel = true;
+            }
+            else
+            {
+                attackCancel = false;
+            }
+            if (Input.GetButtonDown("Jump"))
+            { 
+                jump = true;
+            }
 
+            if (isGrounded && !isAttacking)
+            {
+                jumpedMidair = false;
+                if (neutral) // Checked via SideInputCheck()
+                    rb.velocity = Vector3.zero;
+                else
+                    rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
+            } // Normal horizontal movement
+        }
+        else // Midair decision tree
+        {
+
+        }
     }
     void FixedUpdate()
     {
@@ -104,18 +109,24 @@ public class PlayerController : MonoBehaviour {
 
         if (lightAttack)
         {
-            canMove = false;
-            tempFacing = facingSide;
-            tempFacingV3 *= tempFacing;
+            
             NeutralLight();
         }
     }
+
+    /*
+    void OnCollisionEnter(Collision hit)
+    {
+        isGrounded = hit.gameObject.tag == "Ground";
+    }
+    */
 
     void SideInputCheck()
     {
         left = Input.GetAxis("Horizontal") < -0.20f;
         right = Input.GetAxis("Horizontal") > 0.20f;
         neutral = Input.GetAxis("Horizontal") >= -0.20f && Input.GetAxis("Horizontal") <= 0.20f;
+
         if (left)
         {
             facingSide = -1f;
@@ -124,11 +135,14 @@ public class PlayerController : MonoBehaviour {
         {
             facingSide = 1f;
         }
+
+        tempFacing = facingSide;
+        tempFacingV3 *= facingSide;
     } // Used to check whether the player is inputting any side
 
     void Jump()
     {    
-        if (!isMidair)
+        if (isGrounded)
         {
             GroundedJumpDirection();
         }
@@ -150,7 +164,7 @@ public class PlayerController : MonoBehaviour {
             movement = new Vector3(0.45f * facingSide, 1f, 0f) * jumpSpeed;
         rb.velocity = Vector3.zero;
         rb.AddForce(movement, ForceMode.Impulse);
-    } // Used for grounded jump calculations
+    } // Used for grounded jump calculations (DO NOT TOUCH)
     void MidairJumpDirection()
     {
         if (neutral)
@@ -160,7 +174,7 @@ public class PlayerController : MonoBehaviour {
             
         rb.velocity = Vector3.zero;
         rb.AddForce(movement, ForceMode.Impulse);
-    } // Used for midair jump calculations
+    } // Used for midair jump calculations (DO NOT TOUCH)
 
     void NeutralLight()
     {
@@ -168,7 +182,6 @@ public class PlayerController : MonoBehaviour {
         StartCoroutine(LightA2());
 
         lightAttack = false;
-        canMove = true;
         attackCancel = false;
     }
     IEnumerator LightA1()
