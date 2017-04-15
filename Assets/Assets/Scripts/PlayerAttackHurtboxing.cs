@@ -28,7 +28,7 @@ public class PlayerAttackHurtboxing : MonoBehaviour {
     {
         if (other.tag == "Enemy") // If the hit object is an enemy : force and damage calculation goes here
         {
-            other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
         }
     } // Called whenever something gets in the instantiated hurtbox
