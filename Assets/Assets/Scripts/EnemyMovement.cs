@@ -22,6 +22,8 @@ public class EnemyMovement : MonoBehaviour
 
     public float view;                              // Distance minimum necessary for the ennemy to see the player and follow it
 
+    public float range_of_pat;                      //Defines how far the ennemy goes when it doesn't see the player
+
 
 
     private void Start()
@@ -36,9 +38,9 @@ public class EnemyMovement : MonoBehaviour
 
         nav.autoBraking = false;
         
-        points[0] = new Vector3(ennemy.position.x - 3, 0, 0);
+        points[0] = new Vector3(ennemy.position.x - range_of_pat, 0, 0);
 
-        points[1] = new Vector3(ennemy.position.x + 3, 0, 0);
+        points[1] = new Vector3(ennemy.position.x + range_of_pat, 0, 0);
 
     }
 
@@ -51,8 +53,7 @@ public class EnemyMovement : MonoBehaviour
         // Set the agent to go to the currently selected destination.
 
         nav.destination = points[destPoint];
-
-
+        
 
         // Choose the next point in the array as the destination,
 
@@ -67,27 +68,16 @@ public class EnemyMovement : MonoBehaviour
     void Update()
 
     {
-
         float dist = Mathf.Abs(player.position.x - ennemy.position.x);
 
-
-
         if (dist < view)
-
         {
-
             nav.SetDestination(player.position);
-
+            nav.stoppingDistance = 2;
         }
 
         else
-
-        {
-
             GotoNextPoint();
-
-        }
-
     }
 
 }
