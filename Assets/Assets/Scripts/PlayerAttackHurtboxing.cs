@@ -21,7 +21,7 @@ public class PlayerAttackHurtboxing : MonoBehaviour {
 
     void Update()
     {
-        Destroy(gameObject, lifeSpan);
+        Destroy(gameObject, lifeSpan/60);
     }
 
     void OnTriggerEnter(Collider other) 
