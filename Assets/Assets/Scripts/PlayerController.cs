@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     private float speed = 3;
     private float jumpSpeed = 5;
     private float doubleJumpSpeed = 5;
@@ -17,15 +16,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 movement;
 
     public float facingSide { get; private set; }
-    private float distToGround;
+    public float facingSideAir { get; private set; }
 
     // Secondary game physics interactions
     private bool isGrounded = true;
     private bool isAttacking = false;
     private bool jumpedMidair = false;
     private bool isDashing = false;
-    private float dashTime;
-    private bool doubleTapD = false;
+    private bool doubleTap = false;
 
     // Attack logic
     private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
@@ -37,6 +35,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 tempFacingV3;
 
     private int currentMoveInRevolverAction = 0;
+
+    // Attacks
+    public AttackDataEx groundLight1, groundLight2, groundLight3;
+    public AttackDataEx jumpLight1, jumpLight2;
+
+    public AttackDataEx groundHeavy1, groundHeavy2;
+    public AttackDataEx jumpHeavy1, jumpHeavy2;
+
+    public AttackDataEx groundSpecial1, groundSpecial2;
+    public AttackDataEx jumpSpecial1, jumpSpecial2;
 
     void Awake()
     {
@@ -66,7 +74,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Fire2"))
             {
                 Debug.Log("h attack");
-                heavyAttack = false;
+                heavyAttack = true;
                 attackCancel = true;
             } // Heavy attacks
             else
@@ -84,7 +92,7 @@ public class PlayerController : MonoBehaviour
                 attackCancel = false;
             }
 
-            if (isGrounded && !isAttacking) // Horizontal movement and jumps
+            if (!isAttacking) // Horizontal movement and jumps
             {
                 jumpedMidair = false;
                 if (Input.GetButtonDown("Jump"))
@@ -130,21 +138,63 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (isGrounded && !isAttacking)
-        { 
-            if (neutral) // Checked via SideInputCheck()
+        if (!isAttacking)
+        {
+            if (isGrounded)
             {
-                rb.velocity = Vector3.zero;
-            }
-            else if (left || right)
-            {
-                rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
-            }
+                if (neutral) // Checked via SideInputCheck()
+                {
+                    rb.velocity = Vector3.zero;
+                }
+                else if (left || right)
+                {
+                    rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
+                }
 
-            if (lightAttack)
+                if (lightAttack)
+                {
+                    isAttacking = true;
+                    lightAttack = false;
+                    Attack(groundLight1);
+                }
+                else if (heavyAttack)
+                {
+                    isAttacking = true;
+                    heavyAttack = false;
+                    Attack(groundHeavy1);
+                }
+                else if (specialAttack)
+                {
+                    isAttacking = true;
+                    specialAttack = false;
+
+                    jumpedMidair = true;
+
+                    Attack(groundSpecial1);
+                }
+            }
+            else
             {
-                isAttacking = true;
-                NeutralLight();
+                if (lightAttack)
+                {
+                    isAttacking = true;
+                    lightAttack = false;
+                    Attack(jumpLight1);
+                }
+
+                if (heavyAttack)
+                {
+                    isAttacking = true;
+                    heavyAttack = false;
+                    Attack(jumpHeavy1);
+                }
+
+                if (specialAttack)
+                {
+                    isAttacking = true;
+                    specialAttack = false;
+                    Attack(jumpSpecial1);
+                }
             }
         }
 
@@ -152,22 +202,6 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("jump");
             Jump();
-        }
-
-        if (lightAttack)
-        {
-            isAttacking = true;
-            NeutralLight();
-        }
-
-        if (heavyAttack)
-        {
-            heavyAttack = false;
-        }
-
-        if (specialAttack)
-        {
-            specialAttack = false;
         }
     }
 
@@ -235,14 +269,14 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector3.zero;
         rb.AddForce(movement, ForceMode.Impulse);
     } // Used for midair jump calculations (DO NOT TOUCH)
-    void NeutralLight()
+    void Attack(AttackDataEx attack)
     {
         lightAttack = false;
         rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(1f * facingSide, 0f, 0f), ForceMode.Impulse);
-        StartCoroutine(Attack(gL1));
-        CancelCalculations();
+        StartCoroutine(AttackPattern(attack));
     }
+
+
     public void CancelCalculations()
     {
         if (attackCancel)
@@ -253,87 +287,39 @@ public class PlayerController : MonoBehaviour
     public class AttackData
     {
         public GameObject hurtBox;
-        public float delay;
+        public float activeFrames;
         public int hbSet;
         public Vector3 playerForce;
     }
-    public AttackData[] gL1;
-    IEnumerator Attack(AttackData[] data)
-    {
-        for (int i = 0; i < data.Length; i++)
-        {
-            data[i].playerForce.x *= facingSide;
-            rb.AddForce(data[i].playerForce, ForceMode.Impulse);
 
-            Instantiate(data[i].hurtBox, gameObject.transform.position + Vector3.Scale(data[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
+    [System.Serializable]
+    public class AttackDataEx
+    {
+        public AttackData[] hbData;
+        public float startupFrames;
+        public float recoveryFramesOnMiss;
+        public float recoveryFramesOnHit;
+
+        public ParticleSystem SFX;
+        public Animation anim;
+        public AudioClip sound;
+
+        public float stunFrames;
+        public bool knockdown;
+        public int damage;
+    }
+    IEnumerator AttackPattern(AttackDataEx data)
+    {
+        yield return new WaitForSeconds(data.startupFrames/60);
+        for (int i = 0; i < data.hbData.Length; i++)
+        {
+            rb.AddForce(data.hbData[i].playerForce * facingSide, ForceMode.Impulse);
+
+            Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
             CancelCalculations();
-            yield return new WaitForSeconds(data[i].delay);
+            yield return new WaitForSeconds(data.hbData[i].activeFrames/60);
         }
+        yield return new WaitForSeconds(data.recoveryFramesOnMiss/60);
         isAttacking = false;
     }
 }
-/*    IEnumerator LightA1()
-    {
-        isAttacking = true;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(10f * facingSide, 0.5f, 0f), ForceMode.Impulse);
-        yield return new WaitForSeconds(5 / 60f);
-        if (hbChecker == 0)
-        {
-            Instantiate(AA, gameObject.transform.position + Vector3.Scale(AA.transform.position, tempFacingV3), gameObject.transform.rotation); // First hurtbox
-            hbChecker++;
-        }
-        yield return new WaitForSeconds(2 / 60f);
-        if (hbChecker == 1)
-        {
-            Instantiate(AB, gameObject.transform.position + Vector3.Scale(AB.transform.position, tempFacingV3), gameObject.transform.rotation); // First hurtbox
-            hbChecker++;
-        }
-        yield return new WaitForSeconds(1 / 60f);
-        if (hbChecker == 2)
-        {
-            Instantiate(AC, gameObject.transform.position + Vector3.Scale(AC.transform.position, tempFacingV3), gameObject.transform.rotation); // First hurtbox
-            hbChecker++;
-        }
-        moveEndTime = Time.time;
-        hbChecker = 0;
-        yield break;
-    } // obsolete, use IEnumerator Attack()
-    IEnumerator LightA2()
-    {
-        isAttacking = true;
-        rb.velocity = Vector3.zero;
-        rb.AddForce(new Vector3(1f * facingSide, 0f, 0f), ForceMode.Impulse);
-        yield return new WaitForSeconds(5 / 60f);
-        if (hbChecker == 0)
-        {
-            Instantiate(BA, gameObject.transform.position + Vector3.Scale(BA.transform.position, tempFacingV3), gameObject.transform.rotation);
-            hbChecker++;
-        }
-        CancelCalculations();
-        yield return new WaitForSeconds(2 / 60f);
-        if (hbChecker == 1)
-        {
-            Instantiate(BB, gameObject.transform.position + Vector3.Scale(BB.transform.position, tempFacingV3), gameObject.transform.rotation);
-            hbChecker++;
-        }
-        CancelCalculations();
-        yield return new WaitForSeconds(1 / 60f);
-        if (hbChecker == 2)
-        {
-            Instantiate(BC, gameObject.transform.position + Vector3.Scale(BC.transform.position, tempFacingV3), gameObject.transform.rotation);
-            hbChecker++;
-        }
-        hbChecker = 0;
-        attackCancel = false;
-    } // obsolete, use IEnumerator Attack()
-
-    IEnumerator HurtboxGeneration(GameObject prefab, float waitTime, int hbCounter, Vector3 dash)
-    {
-        yield return new WaitForSeconds(waitTime);
-        if (hbChecker == hbCounter)
-        {
-            Instantiate(prefab, gameObject.transform.position + Vector3.Scale(prefab.transform.position, tempFacingV3), gameObject.transform.rotation);
-            hbChecker++;
-        }
-    }*/
