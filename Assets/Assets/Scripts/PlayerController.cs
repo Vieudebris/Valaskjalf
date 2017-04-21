@@ -10,26 +10,27 @@ public class PlayerController : MonoBehaviour
     private float doubleJumpSpeed = 5;
 
     private bool neutral, left, right, up, down;
-    private bool lightAttack, heavyAttack, specialAttack;
+    public bool lightAttack, heavyAttack, specialAttack;
     private bool jump;
 
     // Primary game physics interactions
     private Rigidbody rb;
     private Vector3 movement;
 
-    public float facingSide;
+    public float facingSide { get; private set; }
+    public float facingSideAir { get; private set; }
 
-    // Secondary game physics interactions
+    // Player state
     private bool isGrounded = true;
-    private bool isAttacking = false;
-    public bool jumpedMidair = false;
-    private bool isDashing = false;
-    private bool doubleTap = false;
+    public bool isAttacking = false;
+    private bool jumpedMidair = false;
+    private int playerHealth = 1000;
+    private bool isStunned = false;
 
     // Attack logic
     private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
     private float moveEndTime;
-    private float comboTimeThreshold = 0.8f;
+    private float comboTimeThreshold = 0.5f;
 
     private Vector3 tempFacingV3;
 
@@ -58,15 +59,15 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        /*distToGround = rb.GetComponentInChildren<Collider>().bounds.extents.y;
-        isGrounded = Physics.Raycast(transform.position, -Vector3.up, distToGround + 0.1f);*/
-
         isGrounded = rb.position.y < 1.095f;
 
-        if (!isAttacking) // Manages side inputs (TO BE REWORKED)
+        if (attackBuffer.Count == 0)
         {
-            SideInputCheck();
+            isAttacking = false;
         }
+
+        if (!isAttacking) // Manages side inputs (TO BE REWORKED)
+            SideInputCheck();
 
         if (isGrounded)
         {
@@ -80,22 +81,12 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("h attack");
                 heavyAttack = true;
-                attackCancel = true;
             } // Heavy attacks inputs
-            else
-            {
-                attackCancel = false;
-            }
             if (Input.GetButtonDown("Fire3"))
             {
                 Debug.Log("s attack");
                 specialAttack = true;
-                attackCancel = true;
             } // Special attacks inputs
-            else
-            {
-                attackCancel = false;
-            }
 
             if (!isAttacking) // Horizontal movement and jumps
             {
@@ -105,7 +96,7 @@ public class PlayerController : MonoBehaviour
                     jump = true;
                 } // Jump
 
-                
+
             } // Normal horizontal movement
         } // Grounded decision tree
         else
@@ -166,6 +157,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isAttacking = true;
                     lightAttack = false;
+
                     currentMoveInCombo = 11;
                     Attack(groundLight1);
                 }
@@ -173,6 +165,7 @@ public class PlayerController : MonoBehaviour
                 {
                     isAttacking = true;
                     heavyAttack = false;
+
                     currentMoveInCombo = 21;
                     Attack(groundHeavy1);
                 }
@@ -180,42 +173,54 @@ public class PlayerController : MonoBehaviour
                 {
                     isAttacking = true;
                     specialAttack = false;
-                    currentMoveInCombo = 31;
 
+                    jumpedMidair = true;
+
+                    currentMoveInCombo = 31;
                     Attack(groundSpecial1);
                 }
-            }
+            } // Grounded decision tree
             else
             {
                 if (lightAttack)
                 {
                     isAttacking = true;
                     lightAttack = false;
+
+                    currentMoveInCombo = 111;
                     Attack(jumpLight1);
                 }
                 else if (heavyAttack)
                 {
                     isAttacking = true;
                     heavyAttack = false;
+                    currentMoveInCombo = 121;
                     Attack(jumpHeavy1);
                 }
                 else if (specialAttack)
                 {
                     isAttacking = true;
                     specialAttack = false;
+                    currentMoveInCombo = 131;
+
                     Attack(jumpSpecial1);
                 }
-            }
-        } // Horizontal movement and combo starters
+            } // Midair decision tree
+        }
+         // Horizontal movement and combo starters
         else if (canCancel)
         {
+            Debug.Log(2);
             if (lightAttack)
             {
+                Debug.Log(1);
+                attackCancel = true;
                 isAttacking = true;
                 lightAttack = false;
                 switch (currentMoveInCombo)
                 {
                     case 11:
+                        Debug.Log(0);
                         currentMoveInCombo = 12;
                         Attack(groundLight2);
                         break;
@@ -228,6 +233,7 @@ public class PlayerController : MonoBehaviour
             else if (heavyAttack)
             {
                 isAttacking = true;
+                attackCancel = true;
                 heavyAttack = false;
                 switch (currentMoveInCombo)
                 {
@@ -240,11 +246,12 @@ public class PlayerController : MonoBehaviour
                         Attack(groundHeavy2);
                         break;
                 }
-                
+
             }
             else if (specialAttack)
             {
                 isAttacking = true;
+                attackCancel = true;
                 specialAttack = false;
                 switch (currentMoveInCombo)
                 {
@@ -263,7 +270,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         } // Follow-ups
-        
+
+        if (jump)
+        {
+            Debug.Log("jump");
+            Jump();
+        }
     }
 
     void SideInputCheck()
@@ -336,6 +348,11 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(AttackPattern(attack));
     }
 
+    public void CancelCalculations()
+    {
+        
+    }
+
     [System.Serializable]
     public class AttackData
     {
@@ -367,6 +384,8 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
+        while (attackBuffer.Count > 1)
+        { }
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         Debug.Log("Attacking with " + data.ID);
         yield return new WaitForSeconds(data.startupFrames / 60);
@@ -380,15 +399,16 @@ public class PlayerController : MonoBehaviour
                 jumpedMidair = true;
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
-        
+
         canCancel = true;
-        if ((!attackCancel || data.isEnder) && attackBuffer.Count == 0)
+        attackBuffer.Remove(data);
+        yield return new WaitForSeconds(data.recoveryFrames / 60);
+        if (attackBuffer.Count == 0)
         {
-            yield return new WaitForSeconds(data.recoveryFrames / 60);
             currentMoveInCombo = 0;
+            attackCancel = false;
             canCancel = false;
             isAttacking = false;
         }
-        // Buffer has to be removed
     }
 }

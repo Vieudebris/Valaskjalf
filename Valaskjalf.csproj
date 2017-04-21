@@ -80,7 +80,7 @@
   <ItemGroup>
     <Compile Include="Assets\Assets\Scripts\AddArbitraryForce.cs" />
     <Compile Include="Assets\Assets\Scripts\CameraFollow.cs" />
-    <Compile Include="Assets\Assets\Scripts\EnemyMovement.cs" />
+    <Compile Include="Assets\Assets\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Assets\Scripts\GameController.cs" />
     <Compile Include="Assets\Assets\Scripts\PlayerAttackHurtboxing.cs" />
     <Compile Include="Assets\Assets\Scripts\PlayerController.cs" />
