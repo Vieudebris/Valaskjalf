@@ -1,0 +1,14 @@
+0 = neutral state
+10-19 = light
+20-29 = heavies
+30-39 = special
+100+ = aerial
+
+groundLight1 = 11, groundLight2 = 12, groundLight3 = 13
+jumpLight1 = 111, jumpLight2 = 112
+
+groundHeavy1 = 21, groundHeavy2 = 22
+jumpHeavy1 = 121, jumpHeavy2 = 122
+
+groundSpecial1 = 31, groundSpecial2 = 32
+jumpSpecial1 = 131, jumpSpecial2 = 132

@@ -1,23 +1,21 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour {
 
-    private Transform player;                       // Reference to the player's position.
-    private Transform ennemy;
+    System.Random rand_att = new System.Random(); //To pick randomly an attack
+
+    private Transform player;       // Reference to the player's position.
+    private Transform enemy;        // Reference to the enemy's position.
 
     // For enemy's movements
-    private Vector3[] points = new Vector3[2];      // Reference to where the ennemy go if it doesn't see the player
-    private int destPoint = 0;
     private UnityEngine.AI.NavMeshAgent nav;
-    public float view;                              // Distance minimum necessary for the ennemy to see the player and follow it
-    public float range_of_pat;                      //Defines how far the ennemy goes when it doesn't see the player
-
+    float dist;
 
     /*Copied from PlayerController (until line 63) */
-
-    private bool neutral, left, right, up, down;
+    
     private bool lightAttack, heavyAttack, specialAttack;
     private bool jump;
     
@@ -31,9 +29,6 @@ public class EnemyBehaviour : MonoBehaviour {
     // Secondary game physics interactions
     private bool isGrounded = true;
     private bool isAttacking = false;
-    private bool jumpedMidair = false;
-    private bool isDashing = false;
-    private bool doubleTap = false;
 
     // Attack logic
     private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
@@ -47,14 +42,7 @@ public class EnemyBehaviour : MonoBehaviour {
     private int currentMoveInRevolverAction = 0;
 
     // Attacks
-    public AttackDataEx groundLight1, groundLight2, groundLight3;
-    public AttackDataEx jumpLight1, jumpLight2;
-
-    public AttackDataEx groundHeavy1, groundHeavy2;
-    public AttackDataEx jumpHeavy1, jumpHeavy2;
-
-    public AttackDataEx groundSpecial1, groundSpecial2;
-    public AttackDataEx jumpSpecial1, jumpSpecial2;
+    public AttackDataEx attack1, attack2, attack3;
 
     void Awake()
     {
@@ -68,38 +56,69 @@ public class EnemyBehaviour : MonoBehaviour {
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        ennemy = GetComponent<Transform>();
+        enemy = GetComponent<Transform>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.autoBraking = false;
-        points[0] = new Vector3(ennemy.position.x - range_of_pat, 0, 0);
-        points[1] = new Vector3(ennemy.position.x + range_of_pat, 0, 0);
+        nav.SetDestination(player.position);
     }
 
-
-    void GotoNextPoint()
-    {
-        // Set the agent to go to the currently selected destination.
-        nav.destination = points[destPoint];
-
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
-    }
-    
 
     void Update()
     {
-        float dist = Mathf.Abs(player.position.x - ennemy.position.x);
+        dist = player.position.x - enemy.position.x;
+        nav.stoppingDistance = 2;
+        SideCheck();
+        int att = rand_att.Next(1, 4);
 
-        if (dist < view)
+        if (Mathf.Abs(dist) < 2 && !isAttacking)
         {
+            isAttacking = true;
+
+            switch (att)
+            {
+                case 1:
+                    Debug.Log("Enemy_test attack1");
+                    Attack(attack1);
+                    break;
+                case 2:
+                    Debug.Log("Enemy_test attack2");
+                    Attack(attack2);
+                    break;
+                case 3:
+                    Debug.Log("Enemy_test attack3");
+                    Attack(attack3);
+                    break;
+            }
+        }
+
+        else
             nav.SetDestination(player.position);
-            nav.stoppingDistance = 2;
+    }
+
+    void SideCheck()
+    {
+        if (dist < 0)
+        {
+            if (isGrounded)
+            {
+                if (rb.transform.rotation.eulerAngles.y == 0 && isGrounded)
+                    rb.GetComponent<Transform>().Rotate(Vector3.up * 180);
+                tempFacingV3 = Vector3.left + Vector3.up;
+            }
+            facingSide = -1f;
         }
         else
-            GotoNextPoint();
+        {
+            if (isGrounded)
+            {
+                if (rb.transform.rotation.eulerAngles.y == 180 && isGrounded)
+                    rb.GetComponent<Transform>().Rotate(Vector3.up * -180);
+                tempFacingV3 = Vector3.right + Vector3.up;
+            }
+            facingSide = 1f;
+        }
     }
-    
+
     //copied from PlayerController
     void Attack(AttackDataEx attack)
     {
@@ -145,10 +164,9 @@ public class EnemyBehaviour : MonoBehaviour {
         yield return new WaitForSeconds(data.startupFrames / 60);
         for (int i = 0; i < data.hbData.Length; i++)
         {
-            rb.AddForce(data.hbData[i].playerForce * facingSide, ForceMode.Impulse);
+            rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
 
             Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
-            CancelCalculations();
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
         yield return new WaitForSeconds(data.recoveryFramesOnMiss / 60);

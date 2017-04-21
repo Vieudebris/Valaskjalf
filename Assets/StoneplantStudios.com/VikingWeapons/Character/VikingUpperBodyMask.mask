@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1011 &101100000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: VikingUpperBodyMask
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Viking_Mesh
+    m_Weight: 1
+  - m_Path: Viking_Rig
+    m_Weight: 1
+  - m_Path: Viking_Rig/root
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/footIK.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/footIK.L/poleKnee.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/footIK.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/footIK.R/poleKnee.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/handIK.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/handIK.L/poleElbow.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/handIK.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/handIK.R/poleElbow.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/OffhandSlot
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/WeaponSlot
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+    m_Weight: 1
+  - m_Path: Viking_Rig/root/hips/thigh.L
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.L/shin.L
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.R
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.R/shin.R
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+    m_Weight: 0
+  - m_Path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+    m_Weight: 0
