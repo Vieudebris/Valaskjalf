@@ -16,7 +16,7 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
     void Start()
     {
         //GameObject player = GameObject.Find("Player");
-        GameObject player = GameObject.Find("Player Network(Clone)");  //For the network
+        GameObject player = GameObject.Find("Player_Network(Clone)");  //For the network
         playerScript = player.GetComponent<PlayerController>();
         timeWait = Time.time;
     }
