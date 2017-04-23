@@ -155,8 +155,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 707, y: 471}
-  m_MaxSize: {x: 18006, y: 14021}
+  m_MinSize: {x: 713, y: 471}
+  m_MaxSize: {x: 18008, y: 14021}
   vertical: 0
   controlID: 21
 --- !u!114 &8
@@ -179,7 +179,7 @@ MonoBehaviour:
     y: 0
     width: 1436
     height: 947
-  m_MinSize: {x: 432, y: 471}
+  m_MinSize: {x: 436, y: 471}
   m_MaxSize: {x: 14006, y: 14021}
   vertical: 0
   controlID: 22
@@ -228,10 +228,10 @@ MonoBehaviour:
     y: 0
     width: 966
     height: 947
-  m_MinSize: {x: 200, y: 321}
-  m_MaxSize: {x: 4004, y: 8021}
+  m_MinSize: {x: 204, y: 342}
+  m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 137
+  controlID: 133
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,8 +302,8 @@ MonoBehaviour:
     y: 0
     width: 484
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -405,19 +405,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Resources/Scripts
+    - Assets/Resources/Prefabs
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/Resources/Scripts
+  - Assets/Resources/Prefabs
   m_LastFoldersGridSize: 16
   m_LastProjectPath: "E:\\Cours\\EPITA\\PROJET\\Valaskj\xE1lf\\Valaskjalf"
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ba270000
-    m_LastClickedID: 10170
-    m_ExpandedIDs: 0000000084250000862500008825000092250000d425000008260000522600005c26000002270000ba270000c62a0000c82a0000ca2a0000cc2a0000ce2a0000d02a0000d22a0000d42a000000ca9a3bffffff7f
+    m_SelectedIDs: 34290000
+    m_LastClickedID: 10548
+    m_ExpandedIDs: 000000008c2800008e280000902800009a280000d4280000fe280000b4290000342a00001a2b00001c2b00001e2b0000202b0000222b0000242b0000262b0000282b00002a2b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -445,7 +445,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6eaafeff
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000084250000862500008825000092250000d425000008260000522600005c26000002270000ba270000c62a0000c82a0000ca2a0000cc2a0000ce2a0000d02a0000d22a0000d42a0000
+    m_ExpandedIDs: 000000008c2800008e280000902800009a280000d4280000fe28000034290000b4290000342a00001a2b00001c2b00001e2b0000202b0000222b0000242b0000262b0000282b00002a2b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -472,8 +472,8 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: bc240000de23000026eaffff82affcff
+    m_HadKeyboardFocusLastEvent: 0
+    m_ExpandedInstanceIDs: bc240000de23000026eaffff82affcff98250000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -530,7 +530,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 7a7dffff187efffffe7effff68deffff04dfffffecdfffffe2fbffff00000000
+    m_ExpandedIDs: 50cdffff22ceffff08cfffffb8d2ffff52d3ffff3cd4ffff28fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -612,7 +612,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.18065695, y: 0.040408656, z: -0.0074286456, w: -0.98268765}
     speed: 2
-    m_Value: {x: -0.18065695, y: 0.040408656, z: -0.0074286456, w: -0.98268765}
+    m_Value: {x: -0.18065694, y: 0.040408652, z: -0.0074286456, w: -0.98268765}
   m_Size:
     m_Target: 32.051716
     speed: 2
