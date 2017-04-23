@@ -42,6 +42,11 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
+            if (GameObject.FindGameObjectWithTag("Player"))
+                m_Player = GameObject.FindGameObjectWithTag("Player").transform;
+            else
+                m_Player = GameObject.FindGameObjectWithTag("Enemy").transform;
+
             TrackPlayer();
         }
 

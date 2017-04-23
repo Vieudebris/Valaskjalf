@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class EnemyBehaviour : MonoBehaviour {
-
+public class EnemyBehaviour : NetworkBehaviour
+{
     System.Random rand_att = new System.Random(); //To pick randomly an attack
 
     private Transform player;       // Reference to the player's position.
@@ -15,10 +16,10 @@ public class EnemyBehaviour : MonoBehaviour {
     float dist;
 
     /*Copied from PlayerController (until line 63) */
-    
+
     private bool lightAttack, heavyAttack, specialAttack;
     private bool jump;
-    
+
     // Primary game physics interactions
     private Rigidbody rb;
     private Vector3 movement;
@@ -39,8 +40,6 @@ public class EnemyBehaviour : MonoBehaviour {
 
     private Vector3 tempFacingV3;
 
-    private int currentMoveInRevolverAction = 0;
-
     // Attacks
     public AttackDataEx attack1, attack2, attack3;
 
@@ -48,23 +47,19 @@ public class EnemyBehaviour : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody>();
         tempFacingV3 = Vector3.right + Vector3.up;
-    }
-     /*copy ends here */
-    
-
-
-    private void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         enemy = GetComponent<Transform>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.autoBraking = false;
-        nav.SetDestination(player.position);
     }
 
 
     void Update()
     {
+        if (GameObject.FindGameObjectWithTag("Player"))
+            player = FindClosestPlayer();
+        else
+            player = enemy;
+
         dist = player.position.x - enemy.position.x;
         nav.stoppingDistance = 2;
         SideCheck();
@@ -95,7 +90,7 @@ public class EnemyBehaviour : MonoBehaviour {
             nav.SetDestination(player.position);
     }
 
-    void SideCheck()
+    void SideCheck() 
     {
         if (dist < 0)
         {
@@ -119,7 +114,28 @@ public class EnemyBehaviour : MonoBehaviour {
         }
     }
 
-    //copied from PlayerController
+    
+    Transform FindClosestPlayer()       //Returns the position of the closest player (for multiplayer)
+    {
+        GameObject[] gos;
+        gos = GameObject.FindGameObjectsWithTag("Player");
+        GameObject closest = null;
+        float distance = Mathf.Infinity;
+        Vector3 position = transform.position;
+        foreach (GameObject go in gos)
+        {
+            Vector3 diff = go.transform.position - position;
+            float curDistance = diff.sqrMagnitude;
+            if (curDistance < distance)
+            {
+                closest = go;
+                distance = curDistance;
+            }
+        }
+        return closest.transform;
+    }
+
+    //Creates Enemy's attacks
     void Attack(AttackDataEx attack)
     {
         lightAttack = false;

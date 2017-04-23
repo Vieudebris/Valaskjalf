@@ -81,6 +81,7 @@
     <Compile Include="Assets\Resources\Scripts\AddArbitraryForce.cs" />
     <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Resources\Scripts\EnemyBehaviour.cs" />
+    <Compile Include="Assets\Resources\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Resources\Scripts\GameController.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerAttackHurtboxing.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
