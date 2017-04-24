@@ -15,29 +15,15 @@ public class EnemyBehaviour : NetworkBehaviour
     private UnityEngine.AI.NavMeshAgent nav;
     float dist;
 
-    /*Copied from PlayerController (until line 63) */
-
-    private bool lightAttack, heavyAttack, specialAttack;
-    private bool jump;
-
-    // Primary game physics interactions
+    // Game physics interactions
     private Rigidbody rb;
     private Vector3 movement;
 
     public float facingSide { get; private set; }
     public float facingSideAir { get; private set; }
-
-    // Secondary game physics interactions
     private bool isGrounded = true;
     private bool isAttacking = false;
-
-    // Attack logic
-    private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
-    private bool attackCancel = false;
-    private int hbChecker = 0;
-    private float moveEndTime;
-    private float comboTimeThreshold = 0.8f;
-
+    
     private Vector3 tempFacingV3;
 
     // Attacks
@@ -63,34 +49,34 @@ public class EnemyBehaviour : NetworkBehaviour
         dist = player.position.x - enemy.position.x;
         nav.stoppingDistance = 2;
         SideCheck();
+
         int att = rand_att.Next(1, 4);
 
-        if (Mathf.Abs(dist) < 2 && !isAttacking)
+        if (!isAttacking)
         {
-            isAttacking = true;
-
-            switch (att)
+            if (Mathf.Abs(dist) < 2)
             {
-                case 1:
-                    Debug.Log("Enemy_test attack1");
-                    Attack(attack1);
-                    break;
-                case 2:
-                    Debug.Log("Enemy_test attack2");
-                    Attack(attack2);
-                    break;
-                case 3:
-                    Debug.Log("Enemy_test attack3");
-                    Attack(attack3);
-                    break;
-            }
-        }
+                isAttacking = true;
 
-        else
-            nav.SetDestination(player.position);
+                switch (att)
+                {
+                    case 1:
+                        Attack(attack1);
+                        break;
+                    case 2:
+                        Attack(attack2);
+                        break;
+                    case 3:
+                        Attack(attack3);
+                        break;
+                }
+            }
+            else
+                nav.SetDestination(player.position);
+        }
     }
 
-    void SideCheck() 
+    void SideCheck() //Checks if it goes to the left or to the right
     {
         if (dist < 0)
         {
@@ -138,15 +124,8 @@ public class EnemyBehaviour : NetworkBehaviour
     //Creates Enemy's attacks
     void Attack(AttackDataEx attack)
     {
-        lightAttack = false;
         rb.velocity = Vector3.zero;
         StartCoroutine(AttackPattern(attack));
-    }
-
-    public void CancelCalculations()
-    {
-        if (attackCancel)
-            hbChecker = 0;
     }
 
     [System.Serializable]
@@ -185,7 +164,7 @@ public class EnemyBehaviour : NetworkBehaviour
             Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
-        yield return new WaitForSeconds(data.recoveryFramesOnMiss / 60);
+        yield return new WaitForSeconds(data.recoveryFramesOnMiss / 60 + 1);
         isAttacking = false;
     }
 }
