@@ -23,11 +23,12 @@ public class EnemyBehaviour : NetworkBehaviour
     public float facingSideAir { get; private set; }
     private bool isGrounded = true;
     private bool isAttacking = false;
-    
+
     private Vector3 tempFacingV3;
 
     // Attacks
     public AttackDataEx attack1, attack2, attack3;
+    public List<AttackDataEx> attackBuffer;
 
     void Awake()
     {
@@ -36,6 +37,7 @@ public class EnemyBehaviour : NetworkBehaviour
         enemy = GetComponent<Transform>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.autoBraking = false;
+        attackBuffer = new List<AttackDataEx>();
     }
 
 
@@ -140,21 +142,24 @@ public class EnemyBehaviour : NetworkBehaviour
     [System.Serializable]
     public class AttackDataEx
     {
+        public int ID;
+
         public AttackData[] hbData;
         public float startupFrames;
-        public float recoveryFramesOnMiss;
-        public float recoveryFramesOnHit;
+        public float recoveryFrames;
 
         public ParticleSystem SFX;
         public Animation anim;
         public AudioClip sound;
 
         public float stunFrames;
-        public bool knockdown;
         public int damage;
-    }
 
-    IEnumerator AttackPattern(AttackDataEx data)
+        public bool endsAerial;
+        public bool knockdown;
+        public bool isEnder;
+    }
+    /*IEnumerator AttackPattern(AttackDataEx data)
     {
         yield return new WaitForSeconds(data.startupFrames / 60);
         for (int i = 0; i < data.hbData.Length; i++)
@@ -166,5 +171,29 @@ public class EnemyBehaviour : NetworkBehaviour
         }
         yield return new WaitForSeconds(data.recoveryFramesOnMiss / 60 + 1);
         isAttacking = false;
+    }*/
+
+    IEnumerator AttackPattern(AttackDataEx data)
+    {
+        while (attackBuffer.Count > 1)
+        { }
+        attackBuffer.Add(data); // Add the current attack to the attackBuffer
+        Debug.Log("Attacking with " + data.ID);
+        yield return new WaitForSeconds(data.startupFrames / 60);
+        for (int i = 0; i < data.hbData.Length; i++)
+        {
+            rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
+
+            Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
+            
+            yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
+        }
+        
+        attackBuffer.Remove(data);
+        yield return new WaitForSeconds(data.recoveryFrames / 60);
+
+        if (attackBuffer.Count == 0)
+            isAttacking = false;
+
     }
 }
