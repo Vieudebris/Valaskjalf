@@ -59,6 +59,7 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
+        PassThroughOthers();
         /* Manages local player input */ 
         if (!isLocalPlayer)
         {
@@ -312,6 +313,15 @@ public class PlayerController : NetworkBehaviour
         }
 
     } // Used to check whether the player is inputting any side
+
+
+    void PassThroughOthers()     //So that players can pass through each other
+    {
+        GameObject[] otherPlayer;
+        otherPlayer = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject other in otherPlayer)
+            Physics.IgnoreCollision(other.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
+    }
 
     void Jump()
     {
