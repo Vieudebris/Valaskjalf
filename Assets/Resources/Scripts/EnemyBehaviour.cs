@@ -51,6 +51,7 @@ public class EnemyBehaviour : NetworkBehaviour
         dist = player.position.x - enemy.position.x;
         nav.stoppingDistance = 2;
         SideCheck();
+        PassThroughOthers();
 
         int att = rand_att.Next(1, 4);
 
@@ -123,6 +124,14 @@ public class EnemyBehaviour : NetworkBehaviour
         return closest.transform;
     }
 
+    void PassThroughOthers()    //So that enemies can pass through each others
+    {
+        GameObject[] otherEnemies;
+        otherEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in otherEnemies)
+            Physics.IgnoreCollision(enemy.GetComponent<Collider>(), GetComponent<Collider>());
+    }
+
     //Creates Enemy's attacks
     void Attack(AttackDataEx attack)
     {
@@ -159,19 +168,6 @@ public class EnemyBehaviour : NetworkBehaviour
         public bool knockdown;
         public bool isEnder;
     }
-    /*IEnumerator AttackPattern(AttackDataEx data)
-    {
-        yield return new WaitForSeconds(data.startupFrames / 60);
-        for (int i = 0; i < data.hbData.Length; i++)
-        {
-            rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
-
-            Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
-            yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
-        }
-        yield return new WaitForSeconds(data.recoveryFramesOnMiss / 60 + 1);
-        isAttacking = false;
-    }*/
 
     IEnumerator AttackPattern(AttackDataEx data)
     {
