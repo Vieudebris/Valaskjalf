@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 99de47765deb11442ba345411a4d1a13
+timeCreated: 1493041846
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Viking-Normal
+  fontNames:
+  - Viking-Normal
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
