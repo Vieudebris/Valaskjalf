@@ -22,7 +22,7 @@ namespace UnityStandardAssets._2D
             if (GameObject.FindGameObjectWithTag("Player"))
                 m_Player = GameObject.FindGameObjectWithTag("Player").transform;
             else
-                m_Player = GameObject.FindGameObjectWithTag("Enemy").transform;  //MUST BE FIXED
+                m_Player = GameObject.FindGameObjectWithTag("CameraBis").transform;
         }
 
 
@@ -45,7 +45,7 @@ namespace UnityStandardAssets._2D
             if (GameObject.FindGameObjectWithTag("Player"))
                 m_Player = GameObject.FindGameObjectWithTag("Player").transform;
             else
-                m_Player = GameObject.FindGameObjectWithTag("Enemy").transform;
+                m_Player = GameObject.FindGameObjectWithTag("CameraBis").transform;
 
             TrackPlayer();
         }
