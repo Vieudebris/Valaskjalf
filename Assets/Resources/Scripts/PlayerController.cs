@@ -277,12 +277,6 @@ public class PlayerController : NetworkBehaviour
                 }
             }
         } // Follow-ups
-
-        if (jump)
-        {
-            Debug.Log("jump");
-            Jump();
-        }
     }
 
     void SideInputCheck()

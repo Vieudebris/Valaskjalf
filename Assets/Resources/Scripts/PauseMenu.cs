@@ -19,7 +19,7 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetButtonDown("Start") && !pauseMenu.activeSelf)
+        if (Input.GetButtonDown("Submit") && !pauseMenu.activeSelf)
         {
             if (Time.timeScale == 1)
             {
