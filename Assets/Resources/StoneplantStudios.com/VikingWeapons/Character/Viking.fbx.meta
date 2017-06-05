@@ -1,0 +1,2780 @@
+fileFormatVersion: 2
+guid: e4c86ace636e84eb2a7f8ad430b784e9
+timeCreated: 1474276212
+licenseType: Store
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: armLow.L
+    100002: armLow.R
+    100004: armUp.L
+    100006: armUp.R
+    100008: Beard.002
+    100010: clavicle.L
+    100012: clavicle.R
+    100014: foot.L
+    100016: foot.R
+    100018: footIK.L
+    100020: footIK.R
+    100022: hand.L
+    100024: hand.R
+    100026: handIK.L
+    100028: handIK.R
+    100030: head
+    100032: hips
+    100034: index01.L
+    100036: index01.R
+    100038: index02.L
+    100040: index02.R
+    100042: middle01.L
+    100044: middle01.R
+    100046: middle02.L
+    100048: middle02.R
+    100050: neck
+    100052: OffHand
+    100054: pinky01.L
+    100056: pinky01.R
+    100058: pinky02.L
+    100060: pinky02.R
+    100062: poleElbow.L
+    100064: poleElbow.R
+    100066: poleKnee.L
+    100068: poleKnee.R
+    100070: ring01.L
+    100072: ring01.R
+    100074: ring02.L
+    100076: ring02.R
+    100078: shin.L
+    100080: shin.R
+    100082: spine01
+    100084: spine02
+    100086: spine03
+    100088: thigh.L
+    100090: thigh.R
+    100092: thumb01.L
+    100094: thumb01.R
+    100096: thumb02.L
+    100098: thumb02.R
+    100100: toe.L
+    100102: toe.R
+    100104: //RootNode
+    100106: Viking_Mesh.002
+    100108: Viking_Rig
+    100110: Weapon
+    100112: head_end
+    100114: index02.L_end
+    100116: index02.R_end
+    100118: middle02.L_end
+    100120: middle02.R_end
+    100122: OffHand_end
+    100124: pinky02.L_end
+    100126: pinky02.R_end
+    100128: poleElbow.L_end
+    100130: poleElbow.R_end
+    100132: poleKnee.L_end
+    100134: poleKnee.R_end
+    100136: ring02.L_end
+    100138: ring02.R_end
+    100140: thumb02.L_end
+    100142: thumb02.R_end
+    100144: toe.L_end
+    100146: toe.R_end
+    100148: Weapon_end
+    100150: FaceSlot
+    100152: OffhandSlot
+    100154: root
+    100156: Viking_Mesh
+    100158: WeaponSlot
+    100160: handSlot.L
+    100162: handSlot.R
+    100164: FaceSlot_end
+    100166: handSlot.L_end
+    100168: handSlot.R_end
+    400000: armLow.L
+    400002: armLow.R
+    400004: armUp.L
+    400006: armUp.R
+    400008: Beard.002
+    400010: clavicle.L
+    400012: clavicle.R
+    400014: foot.L
+    400016: foot.R
+    400018: footIK.L
+    400020: footIK.R
+    400022: hand.L
+    400024: hand.R
+    400026: handIK.L
+    400028: handIK.R
+    400030: head
+    400032: hips
+    400034: index01.L
+    400036: index01.R
+    400038: index02.L
+    400040: index02.R
+    400042: middle01.L
+    400044: middle01.R
+    400046: middle02.L
+    400048: middle02.R
+    400050: neck
+    400052: OffHand
+    400054: pinky01.L
+    400056: pinky01.R
+    400058: pinky02.L
+    400060: pinky02.R
+    400062: poleElbow.L
+    400064: poleElbow.R
+    400066: poleKnee.L
+    400068: poleKnee.R
+    400070: ring01.L
+    400072: ring01.R
+    400074: ring02.L
+    400076: ring02.R
+    400078: shin.L
+    400080: shin.R
+    400082: spine01
+    400084: spine02
+    400086: spine03
+    400088: thigh.L
+    400090: thigh.R
+    400092: thumb01.L
+    400094: thumb01.R
+    400096: thumb02.L
+    400098: thumb02.R
+    400100: toe.L
+    400102: toe.R
+    400104: //RootNode
+    400106: Viking_Mesh.002
+    400108: Viking_Rig
+    400110: Weapon
+    400112: head_end
+    400114: index02.L_end
+    400116: index02.R_end
+    400118: middle02.L_end
+    400120: middle02.R_end
+    400122: OffHand_end
+    400124: pinky02.L_end
+    400126: pinky02.R_end
+    400128: poleElbow.L_end
+    400130: poleElbow.R_end
+    400132: poleKnee.L_end
+    400134: poleKnee.R_end
+    400136: ring02.L_end
+    400138: ring02.R_end
+    400140: thumb02.L_end
+    400142: thumb02.R_end
+    400144: toe.L_end
+    400146: toe.R_end
+    400148: Weapon_end
+    400150: FaceSlot
+    400152: OffhandSlot
+    400154: root
+    400156: Viking_Mesh
+    400158: WeaponSlot
+    400160: handSlot.L
+    400162: handSlot.R
+    400164: FaceSlot_end
+    400166: handSlot.L_end
+    400168: handSlot.R_end
+    2300000: Beard.002
+    3300000: Beard.002
+    4300000: Beard.002
+    4300002: Viking_Mesh.002
+    4300004: Viking_Mesh
+    7400000: Viking_Rig|Attack.001
+    7400002: Viking_Rig|Attack_RightHand
+    7400004: Viking_Rig|basic_sword-short_meshAction
+    7400006: Viking_Rig|Death
+    7400008: Viking_Rig|Idle_oneHand_shield
+    7400010: Viking_Rig|Jump
+    7400012: Viking_Rig|Posed
+    7400014: Viking_Rig|Run
+    7400016: Viking_Rig|Walk
+    7400018: Viking_Rig|WeaponStance
+    7400020: Viking_Rig|Attack
+    7400022: Viking_Rig|Run0
+    7400024: Viking_Rig|Attack_LeftHand
+    7400026: Viking_Rig|attack_twoHand
+    7400028: Viking_Rig|attack_twoHand_big
+    7400030: Viking_Rig|attack_twoHand_spear
+    7400032: Viking_Rig|Idle_twoHand
+    7400034: Viking_Rig|Idle_twoHand_big
+    9500000: //RootNode
+    13700000: Viking_Mesh.002
+    13700002: Viking_Mesh
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 1
+    motionNodeName: Viking_Rig/root
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Viking_Rig|Attack_LeftHand' has import animation
+      warnings that might lower retargeting quality:\n\t'spine03' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'Viking_Rig|Attack_RightHand'
+      has import animation warnings that might lower retargeting quality:\n\t'spine03'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Viking_Rig|attack_twoHand' has import animation warnings that might lower retargeting
+      quality:\n\t'spine03' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\t'ring01.L' has translation animation that will be
+      discarded.\n\nClip 'Viking_Rig|attack_twoHand_big' has import animation warnings
+      that might lower retargeting quality:\n\t'spine03' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n\t'ring01.L' has translation
+      animation that will be discarded.\n\t'index01.R' has translation animation that
+      will be discarded.\n\t'middle01.R' has translation animation that will be discarded.\n\t'ring01.R'
+      has translation animation that will be discarded.\n\t'pinky01.R' has translation
+      animation that will be discarded.\n\nClip 'Viking_Rig|attack_twoHand_spear'
+      has import animation warnings that might lower retargeting quality:\n\t'spine03'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\t'ring01.L'
+      has translation animation that will be discarded.\n\t'index01.R' has translation
+      animation that will be discarded.\n\t'middle01.R' has translation animation
+      that will be discarded.\n\t'ring01.R' has translation animation that will be
+      discarded.\n\nClip 'Viking_Rig|Death' has import animation warnings that might
+      lower retargeting quality:\n\t'spine03' is inbetween humanoid transforms and
+      has rotation animation that will be discarded.\n\nClip 'Viking_Rig|Idle_oneHand_shield'
+      has import animation warnings that might lower retargeting quality:\n\t'spine03'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Viking_Rig|Idle_twoHand' has import animation warnings that might lower retargeting
+      quality:\n\t'spine03' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\nClip 'Viking_Rig|Idle_twoHand_big' has import animation
+      warnings that might lower retargeting quality:\n\t'spine03' is inbetween humanoid
+      transforms and has rotation animation that will be discarded.\n\nClip 'Viking_Rig|Jump'
+      has import animation warnings that might lower retargeting quality:\n\t'spine03'
+      is inbetween humanoid transforms and has rotation animation that will be discarded.\n\nClip
+      'Viking_Rig|Run' has import animation warnings that might lower retargeting
+      quality:\n\t'spine03' is inbetween humanoid transforms and has rotation animation
+      that will be discarded.\n\nClip 'Viking_Rig|Walk' has import animation warnings
+      that might lower retargeting quality:\n\t'spine03' is inbetween humanoid transforms
+      and has rotation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths:
+    - Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+    - Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+    - Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+    - Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+    clipAnimations:
+    - serializedVersion: 16
+      name: Viking_Rig|Attack_LeftHand
+      takeName: Viking_Rig|Attack_LeftHand
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Attack_RightHand
+      takeName: Viking_Rig|Attack_RightHand
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|attack_twoHand
+      takeName: Viking_Rig|attack_twoHand
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|attack_twoHand_big
+      takeName: Viking_Rig|attack_twoHand_big
+      firstFrame: 0
+      lastFrame: 19
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|attack_twoHand_spear
+      takeName: Viking_Rig|attack_twoHand_spear
+      firstFrame: 0
+      lastFrame: 23
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Death
+      takeName: Viking_Rig|Death
+      firstFrame: 0
+      lastFrame: 34
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Idle_oneHand_shield
+      takeName: Viking_Rig|Idle_oneHand_shield
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Idle_twoHand
+      takeName: Viking_Rig|Idle_twoHand
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Idle_twoHand_big
+      takeName: Viking_Rig|Idle_twoHand_big
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Jump
+      takeName: Viking_Rig|Jump
+      firstFrame: 0
+      lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.6982823
+        functionName: LeftFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.8
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.729649
+        functionName: RightFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.7
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L/poleKnee.L_end
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R/poleKnee.R_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L/poleElbow.L_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R/poleElbow.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L/handSlot.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L/index02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L/middle02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L/pinky02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L/ring02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L/thumb02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R/handSlot.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R/index02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R/middle02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R/pinky02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R/ring02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R/thumb02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot/FaceSlot_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L/toe.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R/toe.R_end
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Run
+      takeName: Viking_Rig|Run
+      firstFrame: 0
+      lastFrame: 28
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.12098581
+        functionName: RightFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.61911875
+        functionName: LeftFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.5
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L/poleKnee.L_end
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R/poleKnee.R_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L/poleElbow.L_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R/poleElbow.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L/handSlot.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L/index02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L/middle02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L/pinky02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L/ring02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L/thumb02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R/handSlot.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R/index02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R/middle02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R/pinky02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R/ring02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R/thumb02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot/FaceSlot_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L/toe.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R/toe.R_end
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Viking_Rig|Walk
+      takeName: Viking_Rig|Walk
+      firstFrame: 0
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.106049284
+        functionName: RightFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.2
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.59895444
+        functionName: LeftFootTouchGround
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0.2
+        intParameter: 0
+        messageOptions: 0
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Viking_Mesh
+        weight: 0
+      - path: Viking_Rig
+        weight: 1
+      - path: Viking_Rig/root
+        weight: 1
+      - path: Viking_Rig/root/footIK.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L
+        weight: 0
+      - path: Viking_Rig/root/footIK.L/poleKnee.L/poleKnee.L_end
+        weight: 0
+      - path: Viking_Rig/root/footIK.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R
+        weight: 0
+      - path: Viking_Rig/root/footIK.R/poleKnee.R/poleKnee.R_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L
+        weight: 0
+      - path: Viking_Rig/root/handIK.L/poleElbow.L/poleElbow.L_end
+        weight: 0
+      - path: Viking_Rig/root/handIK.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R
+        weight: 0
+      - path: Viking_Rig/root/handIK.R/poleElbow.R/poleElbow.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/handSlot.L/handSlot.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/index01.L/index02.L/index02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/middle01.L/middle02.L/middle02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/pinky01.L/pinky02.L/pinky02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/ring01.L/ring02.L/ring02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.L/armUp.L/armLow.L/hand.L/thumb01.L/thumb02.L/thumb02.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/handSlot.R/handSlot.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/index01.R/index02.R/index02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/middle01.R/middle02.R/middle02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/pinky01.R/pinky02.R/pinky02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/ring01.R/ring02.R/ring02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/clavicle.R/armUp.R/armLow.R/hand.R/thumb01.R/thumb02.R/thumb02.R_end
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head
+        weight: 1
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot
+        weight: 0
+      - path: Viking_Rig/root/hips/spine01/spine02/spine03/neck/head/FaceSlot/FaceSlot_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.L/shin.L/foot.L/toe.L/toe.L_end
+        weight: 0
+      - path: Viking_Rig/root/hips/thigh.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R
+        weight: 1
+      - path: Viking_Rig/root/hips/thigh.R/shin.R/foot.R/toe.R/toe.R_end
+        weight: 0
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 2
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: hips
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.L
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thigh.R
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.L
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: shin.R
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.L
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: foot.R
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine01
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: spine02
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: neck
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: head
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: clavicle.L
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: clavicle.R
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: armUp.L
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: armUp.R
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: armLow.L
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: armLow.R
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.L
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: hand.R
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.L
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: toe.R
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb01.L
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb02.L
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index01.L
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index02.L
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: middle01.L
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: middle02.L
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ring01.L
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ring02.L
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pinky01.L
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pinky02.L
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb01.R
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: thumb02.R
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index01.R
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: index02.R
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: middle01.R
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: middle02.R
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ring01.R
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: ring02.R
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pinky01.R
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: pinky02.R
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: Viking(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Viking_Mesh
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.00000008146034, y: 0, z: -0, w: 1}
+      scale: {x: 0.3372798, y: 0.3372798, z: 0.3372798}
+      transformModified: 1
+    - name: Viking_Rig
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: root
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.00000032584134, y: -0.00000008940697, z: 1, w: 0}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000002}
+      transformModified: 1
+    - name: hips
+      position: {x: -0.007182969, y: 0.000000009210835, z: 0.948489}
+      rotation: {x: 0.00000005960454, y: -0.0015314196, z: 3.7722832e-11, w: 0.99999887}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.99999976}
+      transformModified: 1
+    - name: spine01
+      position: {x: 0.000100545156, y: 0.000000005384208, z: 0.032834273}
+      rotation: {x: -0.0011344698, y: -0.67156297, z: -0.74094594, w: 0.0010282174}
+      scale: {x: 0.9999999, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: spine02
+      position: {x: 1.16415315e-10, y: 0.22435108, z: -0.0000000010768416}
+      rotation: {x: 0.04184041, y: -0.00000010506483, z: -0.000000005820766, w: 0.9991243}
+      scale: {x: 1, y: 1.0000001, z: 1}
+      transformModified: 1
+    - name: spine03
+      position: {x: -4.6566126e-10, y: 0.1689948, z: 0.0000000024301696}
+      rotation: {x: 0.047662336, y: 7.99929e-11, z: -0.0000000116052234, w: 0.9988636}
+      scale: {x: 1.0000001, y: 0.9999998, z: 0.9999998}
+      transformModified: 1
+    - name: clavicle.L
+      position: {x: 0.000000002211891, y: 0.30229738, z: 0.0000000010477378}
+      rotation: {x: -0.60901105, y: 0.41084155, z: 0.4710021, w: 0.4883358}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000006}
+      transformModified: 1
+    - name: armUp.L
+      position: {x: -0.00000001490116, y: 0.33916023, z: 0.00000005587935}
+      rotation: {x: -0.06366173, y: 0.01851706, z: -0.10393229, w: -0.99237216}
+      scale: {x: 1.0000004, y: 0.9999997, z: 0.9999994}
+      transformModified: 1
+    - name: armLow.L
+      position: {x: 0.00000006705522, y: 0.45860547, z: -0.00000008940696}
+      rotation: {x: -0.042065237, y: -0.0038847858, z: -0.031338528, w: -0.99861574}
+      scale: {x: 0.9999992, y: 0.99999875, z: 0.9999996}
+      transformModified: 1
+    - name: hand.L
+      position: {x: -0.00000007078051, y: 0.34387437, z: 0.00000009685754}
+      rotation: {x: -0.021887466, y: -0.05423218, z: -0.026364323, w: 0.99794024}
+      scale: {x: 1.0000008, y: 1.0000011, z: 1.0000007}
+      transformModified: 1
+    - name: index01.L
+      position: {x: -0.06703856, y: 0.15502359, z: 0.030896952}
+      rotation: {x: 0.038404766, y: -0.016952101, z: 0.04426674, w: 0.9981374}
+      scale: {x: 0.9999999, y: 0.99999946, z: 1}
+      transformModified: 1
+    - name: index02.L
+      position: {x: 0.00000001490116, y: 0.12468376, z: -0.00000001490116}
+      rotation: {x: -0.1608033, y: -0.008358877, z: -0.013130068, w: 0.9868638}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000001}
+      transformModified: 1
+    - name: middle01.L
+      position: {x: -0.0008710771, y: 0.17875376, z: 0.035679426}
+      rotation: {x: 0.021437945, y: 0.012513576, z: -0.01031, w: 0.99963874}
+      scale: {x: 0.99999976, y: 0.99999917, z: 0.9999999}
+      transformModified: 1
+    - name: middle02.L
+      position: {x: 0.00000004470348, y: 0.12629957, z: 0.00000002980232}
+      rotation: {x: -0.2113542, y: 0.0000003390014, z: 0.0040553915, w: 0.9774012}
+      scale: {x: 1, y: 1.0000005, z: 1.0000001}
+      transformModified: 1
+    - name: ring01.L
+      position: {x: 0.04906432, y: 0.16375726, z: 0.021945795}
+      rotation: {x: -0.048071295, y: -0.058257103, z: 0.04626021, w: -0.9960699}
+      scale: {x: 1.0000002, y: 0.9999992, z: 1}
+      transformModified: 1
+    - name: ring02.L
+      position: {x: -0.00000002980232, y: 0.102137096, z: 0.00000009685754}
+      rotation: {x: -0.2683575, y: -0.0010375899, z: -0.017871, w: 0.9631531}
+      scale: {x: 1.0000006, y: 1.0000015, z: 1.0000006}
+      transformModified: 1
+    - name: pinky01.L
+      position: {x: 0.09531235, y: 0.12211822, z: -0.0005409568}
+      rotation: {x: -0.05559481, y: -0.04388122, z: 0.050761733, w: -0.9961962}
+      scale: {x: 0.99999976, y: 0.99999964, z: 0.9999999}
+      transformModified: 1
+    - name: pinky02.L
+      position: {x: -0, y: 0.07792123, z: -0.00000002980232}
+      rotation: {x: -0.28492746, y: -0.0019752935, z: 0.006243983, w: 0.9585267}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1.0000011}
+      transformModified: 1
+    - name: thumb01.L
+      position: {x: -0.067927815, y: 0.020516831, z: -0.018741835}
+      rotation: {x: 0.3148582, y: -0.58113855, z: 0.28298625, w: 0.695026}
+      scale: {x: 1.0000001, y: 0.99999976, z: 0.9999994}
+      transformModified: 1
+    - name: thumb02.L
+      position: {x: -0.00000004470348, y: 0.15627906, z: 0}
+      rotation: {x: -0.15278898, y: -0.00016254181, z: 0.038358063, w: 0.9875142}
+      scale: {x: 1.0000004, y: 1.0000002, z: 0.9999999}
+      transformModified: 1
+    - name: OffhandSlot
+      position: {x: 0.0018599032, y: 0.13675585, z: -0.07200166}
+      rotation: {x: 0.48935652, y: -0.49125734, z: -0.59866667, w: 0.40099213}
+      scale: {x: 0.99999976, y: 1.0000005, z: 0.99999976}
+      transformModified: 1
+    - name: neck
+      position: {x: 0.000000002211891, y: 0.30229738, z: 0.0000000010477378}
+      rotation: {x: 0.20083833, y: -0.016974224, z: -0.003480575, w: 0.97947115}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000002}
+      transformModified: 1
+    - name: head
+      position: {x: -0.0000000051222737, y: 0.16242109, z: -0.000000037111473}
+      rotation: {x: -0.36184502, y: 0.016816797, z: 0.006013058, w: 0.93206716}
+      scale: {x: 0.9999999, y: 0.99999976, z: 1}
+      transformModified: 1
+    - name: FaceSlot
+      position: {x: -0.00025768016, y: -0.16187568, z: 0.18091226}
+      rotation: {x: -0.0117622, y: -0.00071137206, z: -0.0000084764315, w: 0.9999306}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: clavicle.R
+      position: {x: 0.000000002211891, y: 0.30229738, z: 0.0000000010477378}
+      rotation: {x: -0.614945, y: -0.41701153, z: -0.46322793, w: 0.4830777}
+      scale: {x: 1.000001, y: 1.0000012, z: 1.0000012}
+      transformModified: 1
+    - name: armUp.R
+      position: {x: -0.00000000372529, y: 0.33916026, z: -0.00000008475035}
+      rotation: {x: -0.06303916, y: -0.037792325, z: 0.10431067, w: -0.9918252}
+      scale: {x: 1.0000007, y: 0.99999964, z: 0.99999964}
+      transformModified: 1
+    - name: armLow.R
+      position: {x: 0.00000001490116, y: 0.45860523, z: 0.00000002235174}
+      rotation: {x: 0.041849226, y: -0.024173234, z: -0.031626847, w: 0.99833065}
+      scale: {x: 1.0000005, y: 1, z: 1.0000002}
+      transformModified: 1
+    - name: hand.R
+      position: {x: -0.0000000027939675, y: 0.34387434, z: -0.00000003073364}
+      rotation: {x: -0.020647597, y: 0.03527263, z: 0.02734698, w: 0.99879014}
+      scale: {x: 1.0000007, y: 1.0000007, z: 1.0000007}
+      transformModified: 1
+    - name: index01.R
+      position: {x: 0.06890831, y: 0.15502359, z: 0.026465885}
+      rotation: {x: 0.03358916, y: -0.022064663, z: -0.04802213, w: 0.9980375}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1.0000006}
+      transformModified: 1
+    - name: index02.R
+      position: {x: 0.00000006705522, y: 0.12468382, z: 0.00000004470348}
+      rotation: {x: -0.1569086, y: -0.0015789667, z: 0.037548017, w: 0.9868978}
+      scale: {x: 0.99999946, y: 1.0000005, z: 0.99999946}
+      transformModified: 1
+    - name: middle01.R
+      position: {x: 0.0031927822, y: 0.17875376, z: 0.03554709}
+      rotation: {x: 0.022064552, y: -0.012583656, z: 0.008890592, w: 0.99963784}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1.0000014}
+      transformModified: 1
+    - name: middle02.R
+      position: {x: -0.00000000745058, y: 0.12629963, z: -0.00000001117587}
+      rotation: {x: -0.21128692, y: 0.014058721, z: 0.0067079314, w: 0.9773}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999995}
+      transformModified: 1
+    - name: ring01.R
+      position: {x: -0.047531016, y: 0.16375734, z: 0.02509447}
+      rotation: {x: 0.046630505, y: 0.037303545, z: 0.047711756, w: 0.9970746}
+      scale: {x: 0.9999999, y: 0.9999996, z: 1.0000006}
+      transformModified: 1
+    - name: ring02.R
+      position: {x: -0, y: 0.10213715, z: -0.000000008323695}
+      rotation: {x: -0.26843575, y: 0.0029595017, z: -0.01665473, w: 0.9631491}
+      scale: {x: 0.9999996, y: 1.0000006, z: 0.999999}
+      transformModified: 1
+    - name: pinky01.R
+      position: {x: -0.095145226, y: 0.12211827, z: 0.005667096}
+      rotation: {x: 0.05710982, y: -0.00916191, z: 0.049052443, w: 0.99712014}
+      scale: {x: 1.0000002, y: 1.0000005, z: 1.0000012}
+      transformModified: 1
+    - name: pinky02.R
+      position: {x: 0.000000011641531, y: 0.077921204, z: 0.000000027124768}
+      rotation: {x: -0.2848747, y: 0.00461429, z: -0.008309734, w: 0.9585177}
+      scale: {x: 1.0000007, y: 1.0000011, z: 1.0000002}
+      transformModified: 1
+    - name: thumb01.R
+      position: {x: 0.06656321, y: 0.02051693, z: -0.023125438}
+      rotation: {x: 0.25052917, y: 0.47830477, z: -0.34125057, w: 0.7694203}
+      scale: {x: 1.0000008, y: 1, z: 1.0000005}
+      transformModified: 1
+    - name: thumb02.R
+      position: {x: -0.00000001490116, y: 0.15627909, z: 0.00000005960464}
+      rotation: {x: -0.1554787, y: -0.060969472, z: 0.02534056, w: 0.9856303}
+      scale: {x: 1.000001, y: 1.0000012, z: 0.9999999}
+      transformModified: 1
+    - name: WeaponSlot
+      position: {x: 0.001274444, y: 0.13810539, z: -0.05254524}
+      rotation: {x: -0.5085994, y: -0.5040604, z: -0.5824074, w: -0.38477463}
+      scale: {x: 1.0000005, y: 1.0000017, z: 0.9999998}
+      transformModified: 1
+    - name: thigh.L
+      position: {x: 0.19139983, y: -0.00000000745058, z: 0.06756818}
+      rotation: {x: -0.6417262, y: -0.019811349, z: -0.0339628, w: 0.76592535}
+      scale: {x: 1.0000017, y: 1.0000019, z: 1.0000001}
+      transformModified: 1
+    - name: shin.L
+      position: {x: 0.00000000745058, y: 0.4215945, z: 0.00000003352761}
+      rotation: {x: -0.16307415, y: -0.009994172, z: 0.035403587, w: 0.98592776}
+      scale: {x: 1.0000007, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: foot.L
+      position: {x: 0.000000011990777, y: 0.43990892, z: -0.00000001117587}
+      rotation: {x: 0.39492851, y: -0.001976677, z: 0.0038723766, w: 0.9187016}
+      scale: {x: 1.0000011, y: 1.0000006, z: 1.0000008}
+      transformModified: 1
+    - name: toe.L
+      position: {x: -0.00000002060551, y: 0.17524761, z: 0.000000017695127}
+      rotation: {x: 0.43966872, y: -0.00000018009447, z: 0.00000008538699, w: 0.89816}
+      scale: {x: 1.000001, y: 1.0000005, z: 0.999999}
+      transformModified: 1
+    - name: thigh.R
+      position: {x: -0.19098239, y: -0.000000025145708, z: 0.0687391}
+      rotation: {x: -0.6420589, y: 0.032866944, z: 0.026949598, w: 0.7654763}
+      scale: {x: 1.000001, y: 1.0000012, z: 1.0000002}
+      transformModified: 1
+    - name: shin.R
+      position: {x: 0.000000028870998, y: 0.42159465, z: -0.000000009778886}
+      rotation: {x: -0.16230358, y: 0.0028934234, z: -0.038783412, w: 0.9859742}
+      scale: {x: 1.0000007, y: 1.000001, z: 1.0000001}
+      transformModified: 1
+    - name: foot.R
+      position: {x: 0.000000009313225, y: 0.4399089, z: 0.000000024214385}
+      rotation: {x: 0.39494574, y: -0.004257289, z: -0.001192147, w: 0.9186938}
+      scale: {x: 1.0000017, y: 1.0000008, z: 1.000001}
+      transformModified: 1
+    - name: toe.R
+      position: {x: -0.000000012762029, y: 0.17524762, z: 0.000000004074536}
+      rotation: {x: 0.43966866, y: -0.00000017811543, z: 0.00000007997732, w: 0.89816004}
+      scale: {x: 1.0000005, y: 1.000001, z: 0.9999991}
+      transformModified: 1
+    - name: footIK.L
+      position: {x: 0.2522407, y: 0.040742178, z: 0.1509809}
+      rotation: {x: 0.00000032584134, y: -0, z: -1, w: 1.2365258e-15}
+      scale: {x: 0.9999994, y: 1.0000001, z: 1.0000001}
+      transformModified: 1
+    - name: poleKnee.L
+      position: {x: -0.0028061864, y: -0.9145841, z: 0.3272946}
+      rotation: {x: 0.7070374, y: -1.5085125e-14, z: -1.4210855e-14, w: 0.70717615}
+      scale: {x: 1, y: 0.99999976, z: 0.9999997}
+      transformModified: 1
+    - name: handIK.L
+      position: {x: 0.48690033, y: 0.16709854, z: 0.9618037}
+      rotation: {x: 0.00000032584134, y: -0, z: -1, w: 1.2365258e-15}
+      scale: {x: 0.99999905, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: poleElbow.L
+      position: {x: 0.52237236, y: -0.70465523, z: -0.32655814}
+      rotation: {x: 0.7059298, y: -0.00000008028147, z: 0.039567064, w: 0.7071758}
+      scale: {x: 1.0000001, y: 0.99999964, z: 0.99999946}
+      transformModified: 1
+    - name: footIK.R
+      position: {x: -0.24084766, y: -0.18915711, z: 0.15593056}
+      rotation: {x: 0.00000032584134, y: -0, z: -1, w: 1.2365258e-15}
+      scale: {x: 0.9999991, y: 1, z: 0.9999999}
+      transformModified: 1
+    - name: poleKnee.R
+      position: {x: -0.17991786, y: -0.8829199, z: 0.30269885}
+      rotation: {x: 0.7070374, y: -1.5085125e-14, z: -1.4210855e-14, w: 0.70717615}
+      scale: {x: 1, y: 0.99999964, z: 0.9999997}
+      transformModified: 1
+    - name: handIK.R
+      position: {x: -0.5246383, y: 0.020523218, z: 0.8408503}
+      rotation: {x: 0.00000032584134, y: -0, z: -1, w: 1.2365258e-15}
+      scale: {x: 0.9999992, y: 1, z: 1.0000001}
+      transformModified: 1
+    - name: poleElbow.R
+      position: {x: -0.4010586, y: -0.74114853, z: -0.2526625}
+      rotation: {x: 0.7070378, y: 0.039567094, z: -0.000007798709, w: 0.70606804}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
+      transformModified: 1
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
