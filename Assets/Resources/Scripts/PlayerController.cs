@@ -378,6 +378,7 @@ public class PlayerController : NetworkBehaviour
         public float activeFrames;
         public Vector3 playerForce;
         public bool lastHb;
+
     }
 
     [System.Serializable]
@@ -457,7 +458,7 @@ public class PlayerController : NetworkBehaviour
         att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
         att.GetComponent<PlayerAttackHurtboxing>().damage = damage;
         att.GetComponent<PlayerAttackHurtboxing>().hbSet = ID;
-        att.transform.parent = GameObject.FindWithTag("Player1").transform;
+        att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
     }
 }

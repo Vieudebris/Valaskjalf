@@ -211,7 +211,7 @@ public class EnemyBehaviour : NetworkBehaviour
         {
             rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
 
-            string path = "Prefabs/Hurtboxes/Enemy1";
+            string path = "Prefabs/Hurtboxes/Enemy1/";
             string hurt = (data.hbData[i].hurtBox).name;
 
             CmdHurt(path + hurt,
@@ -239,7 +239,7 @@ public class EnemyBehaviour : NetworkBehaviour
         att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
         att.GetComponent<EnemyAttackHurtboxing>().damage = damage;
         att.GetComponent<EnemyAttackHurtboxing>().hbSet = ID;
-        att.transform.parent = GameObject.FindWithTag("Player1").transform;
+        att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
     }
 }

@@ -31,7 +31,7 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Player1" || other.tag == "Player 2") && other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
+        if ((other.tag == "Player") && other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
         {
 
             playerScript = other.GetComponent<PlayerController>();
