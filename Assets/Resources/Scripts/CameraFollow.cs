@@ -19,8 +19,8 @@ namespace UnityStandardAssets._2D
         private void Awake()
         {
             // Setting up the reference.
-            if (GameObject.FindGameObjectWithTag("Player"))
-                m_Player = GameObject.FindGameObjectWithTag("Player").transform;
+            if (GameObject.FindGameObjectWithTag("Player1"))
+                m_Player = GameObject.FindGameObjectWithTag("Player1").transform;
             else
                 m_Player = GameObject.FindGameObjectWithTag("CameraBis").transform;
         }
@@ -42,8 +42,8 @@ namespace UnityStandardAssets._2D
 
         private void Update()
         {
-            if (GameObject.FindGameObjectWithTag("Player"))
-                m_Player = GameObject.FindGameObjectWithTag("Player").transform;
+            if (GameObject.FindGameObjectWithTag("Player1"))
+                m_Player = GameObject.FindGameObjectWithTag("Player1").transform;
             else
                 m_Player = GameObject.FindGameObjectWithTag("CameraBis").transform;
 

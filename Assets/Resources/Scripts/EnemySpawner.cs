@@ -7,10 +7,14 @@ public class EnemySpawner : NetworkBehaviour
     public GameObject enemyPrefab;
     public int numberOfEnemies;
     public int DelayBetweenSpawn;
+    public bool isOn = true;
 
     public override void OnStartServer()
     {
+        if (isOn)
+        {
             StartCoroutine(SpawnEnemy());
+        }
     }
 
     IEnumerator SpawnEnemy()
