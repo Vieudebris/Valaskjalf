@@ -12,6 +12,9 @@ public class MenuManager : MonoBehaviour {
     public GameObject displayJoin;
     public GameObject msg2;
     public GameObject msg3;
+    public GameObject msg4;
+    public GameObject msg5;
+    public GameObject msg6;
 
     // Use this for initialization
     void Start ()
@@ -31,5 +34,11 @@ public class MenuManager : MonoBehaviour {
         msg2.SetActive(false);
         msg3 = GameObject.Find("msg3");
         msg3.SetActive(false);
+        msg4 = GameObject.Find("msg4");
+        msg4.SetActive(false);
+        msg5 = GameObject.Find("msg5");
+        msg5.SetActive(false);
+        msg6 = GameObject.Find("msg6");
+        msg6.SetActive(false);
     }
 }

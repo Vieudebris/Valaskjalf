@@ -78,7 +78,6 @@ public class MenuScript : MonoBehaviour
                 menuManager.displayMult.SetActive(true);
                 menuManager.displayMatch.SetActive(false);
                 menuManager.msg1.SetActive(false);
-                NetworkManager.singleton.StopMatchMaker();
             }
 
             if (menuManager.displayJoin.activeSelf)
@@ -87,8 +86,9 @@ public class MenuScript : MonoBehaviour
                 menuManager.displayJoin.SetActive(false);
                 menuManager.msg2.SetActive(false);
                 menuManager.msg3.SetActive(false);
-                NetworkManager.singleton.StopMatchMaker();
             }
+
+            NetworkManager.singleton.StopMatchMaker();
 
             if (solo == true)
                 solo = false;
@@ -104,7 +104,9 @@ public class MenuScript : MonoBehaviour
         {
             NetworkManager.singleton.StartMatchMaker();
             NetworkManager.singleton.matchMaker.CreateMatch(RoomName.roomName, 2, true, "", "", "", 0, 0, OnInternetMatchCreate);
-            menuManager.msg1.SetActive(true);   
+            menuManager.msg1.SetActive(true);
+
+            StartCoroutine(isConnected());
             
         }
 
@@ -124,7 +126,7 @@ public class MenuScript : MonoBehaviour
         }
 
         if (isBoxTraining)
-            SceneManager.LoadScene("The Box", LoadSceneMode.Single);
+            NetworkManager.singleton.ServerChangeScene("The Box");
 
 
         if (isNiflheim)
@@ -202,9 +204,11 @@ public class MenuScript : MonoBehaviour
         if (success)
         {
             Debug.Log("Able to join a match");
-
+            menuManager.msg4.SetActive(true);
             MatchInfo hostInfo = matchInfo;
             NetworkManager.singleton.StartClient(hostInfo);
+            menuManager.displayJoin.SetActive(false);
+            menuManager.msg6.SetActive(true);
         }
         else
         {
@@ -212,6 +216,19 @@ public class MenuScript : MonoBehaviour
         }
     }
 
+    IEnumerator isConnected()
+    {
+        do { yield return new WaitForSeconds(5); }
+        while (NetworkServer.connections.Count < 2);
+
+        if (NetworkServer.connections.Count == 2)
+        {
+            menuManager.displayMatch.SetActive(false);
+            menuManager.display2.SetActive(true);
+            menuManager.msg1.SetActive(false);
+            menuManager.msg5.SetActive(true);
+        }
+    }
 }
 
 

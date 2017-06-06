@@ -15,5 +15,7 @@ public class ForSolo : MonoBehaviour {
             NetworkManager.singleton.StartHost();
             net.showGUI = false;
         }
+
+        NetworkManager.singleton.autoCreatePlayer = true;
     }
 }

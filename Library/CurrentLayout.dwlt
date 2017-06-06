@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 4}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 47
+  controlID: 23
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -155,10 +155,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 709, y: 492}
+  m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 141
+  controlID: 126
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,10 +179,10 @@ MonoBehaviour:
     y: 0
     width: 1433
     height: 947
-  m_MinSize: {x: 432, y: 492}
+  m_MinSize: {x: 436, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 0
-  controlID: 118
+  controlID: 127
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -228,10 +228,10 @@ MonoBehaviour:
     y: 0
     width: 965
     height: 947
-  m_MinSize: {x: 200, y: 321}
-  m_MaxSize: {x: 4004, y: 8021}
+  m_MinSize: {x: 204, y: 342}
+  m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 119
+  controlID: 128
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 495
     width: 965
     height: 452
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -413,13 +413,13 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/_Scenes/Menu
   m_LastFoldersGridSize: 16
-  m_LastProjectPath: "E:\\Cours\\EPITA\\PROJET\\Valaskj\xE1lf\\Valaskjalf"
+  m_LastProjectPath: "E:\\Cours\\EPITA\\PROJET\\Valaskj\xE1lf\\git\\Valaskjalf"
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 7c270000
-    m_LastClickedID: 10108
-    m_ExpandedIDs: 0000000082250000842500008625000090250000d2250000a8260000042700001e270000d8270000122d0000142d0000162d0000182d00001a2d00001c2d00001e2d0000202d0000222d000000ca9a3bffffff7f
+    m_SelectedIDs: 7e270000
+    m_LastClickedID: 10110
+    m_ExpandedIDs: 0000000084250000862500008825000092250000d4250000aa2600000627000020270000da270000102d0000122d0000142d0000162d0000182d00001a2d00001c2d00001e2d0000202d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -447,7 +447,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 18cbffff
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000082250000842500008625000090250000d2250000a8260000042700001e270000d8270000122d0000142d0000162d0000182d00001a2d00001c2d00001e2d0000202d0000222d0000
+    m_ExpandedIDs: 0000000084250000862500008825000092250000d4250000aa2600000627000020270000da270000102d0000122d0000142d0000162d0000182d00001a2d00001c2d00001e2d0000202d0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -530,9 +530,9 @@ MonoBehaviour:
     height: 522
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4a7a0000
-    m_LastClickedID: 31306
-    m_ExpandedIDs: 147cfffff47cffff707effff1e7fffff247fffff1086ffffe686ffff6288ffff1089ffff1689ffff748fffff4290ffffc291ffff7492ffff7e92ffff8c95ffff0e99ffffd09fffffbca0ffff38a2ffffe8a2ffffeea2ffff28adffff18aeffff94afffff44b0ffff4ab0ffff36bfffff20c0ffff9cc1ffff4cc2ffff52c2ffff88f5ffff54f6ffffd0f7ffff80f8ffff86f8ffffe4fbfffff4ffffff000000004c3600007c360000c0360000543700008c37000082510000ac520000e4520000126800004a680000
+    m_SelectedIDs: 
+    m_LastClickedID: 0
+    m_ExpandedIDs: e420fcff7621fcfff622fcffa823fcffb223fcff6c24fcff0a2afcff762cfcff242dfcffa02efcff4e2ffcff542ffcff2640fcffd240fcff4e42fcfffc42fcff0243fcffaa46fcff5647fcffd248fcff8049fcff8649fcffd85ffcffca60fcff4662fcfff462fcfffa62fcfffe89fcffac8afcff288cfcffd68cfcffdc8cfcff1294fcffee94fcff6a96fcff1897fcff1e97fcff16d1fcfff8d1fcff74d3fcff22d4fcff28d4fcffaae2fdff40e3fdffbce4fdff6ae5fdff70e5fdffe4fbfffff4ffffff00000000465a0000d06f00003681000012930000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
