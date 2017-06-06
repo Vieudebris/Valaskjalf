@@ -8,10 +8,15 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
     public Vector3 appliedForce = new Vector3(0, 1, 0);
     public float modForce = 5f;
     public float lifeSpan = 2f;
+    public int hbSet;
 
     private PlayerController playerScript;
+    private EnemyBehaviour enemyScript;
     private bool timeCheck;
     private float timeWait;
+
+    public bool knockdown;
+    public int damage;
 
     void Start()
     {
@@ -28,10 +33,23 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Enemy") // If the hit object is an enemy : force and damage calculation goes here
+        if (other.tag == "Enemy" && other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
         {
-            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+            enemyScript = other.GetComponent<EnemyBehaviour>();
+            enemyScript.timeReset = Time.time;
+            enemyScript.health -= damage;
+            enemyScript.hitByCurrent = hbSet;
+            enemyScript.hitByLast = enemyScript.hitByCurrent;
+
+            if (knockdown)
+            {
+                enemyScript.Knockdown();
+            }
+            else
+            {
+                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+            }
         }
     } // Called whenever something gets in the instantiated hurtbox
 }

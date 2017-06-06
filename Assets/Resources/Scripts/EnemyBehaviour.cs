@@ -21,14 +21,24 @@ public class EnemyBehaviour : NetworkBehaviour
 
     public float facingSide { get; private set; }
     public float facingSideAir { get; private set; }
-    private bool isGrounded = true;
-    private bool isAttacking = false;
 
     private Vector3 tempFacingV3;
 
     // Attacks
     public AttackDataEx attack1, attack2, attack3;
     public List<AttackDataEx> attackBuffer;
+
+    // Enemy state
+    private bool isGrounded = true;
+    private bool isAttacking = false;
+    private bool jumpedMidair = false;
+    public int health = 2000;
+    private bool isStunned = false;
+    private bool canTakeAction;
+
+    public int hitByCurrent = 0;
+    public int hitByLast = 0;
+    public float timeReset;
 
     void Awake()
     {
@@ -40,9 +50,19 @@ public class EnemyBehaviour : NetworkBehaviour
         attackBuffer = new List<AttackDataEx>();
     }
 
-
     void Update()
     {
+        if (hitByCurrent != 0 && hitByLast == hitByCurrent)
+        {
+            timeReset = Time.time;
+            if (Time.time >= timeReset + 1/3f)
+            {
+                hitByCurrent = 0;
+                hitByLast = 0;
+            }
+        } // Check for hitbox multiplicity of hits
+
+        canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
         else
@@ -55,7 +75,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
         int att = rand_att.Next(1, 4);
 
-        if (!isAttacking)
+        if (canTakeAction)
         {
             if (Mathf.Abs(dist) < 2)
             {
@@ -76,6 +96,11 @@ public class EnemyBehaviour : NetworkBehaviour
             }
             else
                 nav.SetDestination(player.position);
+        }
+
+        if (health <= 0)
+        {
+            Kill();
         }
     }
 
@@ -124,6 +149,16 @@ public class EnemyBehaviour : NetworkBehaviour
         return closest.transform;
     }
 
+    void Kill()
+    {
+
+    }
+
+    public void Knockdown() // Knocks down if needed, called by PlayerAttackHurtboxing
+    {
+
+    }
+
     void PassThroughOthers()    //So that enemies can pass through each others
     {
         GameObject[] otherEnemies;
@@ -135,7 +170,6 @@ public class EnemyBehaviour : NetworkBehaviour
     //Creates Enemy's attacks
     void Attack(AttackDataEx attack)
     {
-        rb.velocity = Vector3.zero;
         StartCoroutine(AttackPattern(attack));
     }
 
@@ -144,8 +178,8 @@ public class EnemyBehaviour : NetworkBehaviour
     {
         public GameObject hurtBox;
         public float activeFrames;
-        public int hbSet;
         public Vector3 playerForce;
+        public bool lastHb;
     }
 
     [System.Serializable]
@@ -171,17 +205,22 @@ public class EnemyBehaviour : NetworkBehaviour
 
     IEnumerator AttackPattern(AttackDataEx data)
     {
-        while (attackBuffer.Count > 1)
-        { }
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
-        Debug.Log("Attacking with " + data.ID);
         yield return new WaitForSeconds(data.startupFrames / 60);
         for (int i = 0; i < data.hbData.Length; i++)
         {
             rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
 
-            Instantiate(data.hbData[i].hurtBox, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
-            
+            string path = "Prefabs/Hurtboxes/Enemy1/";
+            string hurt = (data.hbData[i].hurtBox).name;
+
+            CmdHurt(path + hurt,
+                gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
+                gameObject.transform.rotation,
+                data.damage,
+                data.knockdown,
+                data.ID);
+
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
         
@@ -191,5 +230,16 @@ public class EnemyBehaviour : NetworkBehaviour
         if (attackBuffer.Count == 0)
             isAttacking = false;
 
+    } // Still doesn't manage network, check CmdHurt arguments
+
+    [Command]
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, bool knockdown, int ID)
+    {
+        var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
+        att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
+        att.GetComponent<EnemyAttackHurtboxing>().damage = damage;
+        att.GetComponent<EnemyAttackHurtboxing>().hbSet = ID;
+        att.transform.parent = GameObject.FindWithTag("Player").transform;
+        NetworkServer.Spawn(att);
     }
 }

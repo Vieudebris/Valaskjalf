@@ -5,12 +5,14 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour
 {
+    private bool paused;
+
     private float speed = 3;
     private float jumpSpeed = 4;
     private float doubleJumpSpeed = 5;
 
     private bool neutral, left, right, up, down;
-    public bool lightAttack, heavyAttack, specialAttack;
+    public bool lightAttack, heavyAttack, specialAttack, block;
     private bool jump;
 
     // Primary game physics interactions
@@ -22,19 +24,25 @@ public class PlayerController : NetworkBehaviour
 
     // Player state
     private bool isGrounded = true;
-    public bool isAttacking = false;
     private bool jumpedMidair = false;
-    private int playerHealth = 1000;
+    public int health = 10000;
+
+    public bool canTakeAction; // = !(isAttacking || isStunned || isBlocking || attackBuffer.Count < 1)
+    public bool isAttacking = false;
     private bool isStunned = false;
+    private bool isBlocking = false;
+
+    public int hitByCurrent = 0;
+    public int hitByLast = 0;
+    public float timeReset;
+
+    //UI
+    public GUIText playerHealthT;
 
     // Attack logic
     private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
-    private float moveEndTime;
-    private float comboTimeThreshold = 0.5f;
-
     private Vector3 tempFacingV3;
 
-    public bool attackCancel = false;
     public bool canCancel = false;
     public int currentMoveInCombo = 0;
 
@@ -50,16 +58,36 @@ public class PlayerController : NetworkBehaviour
 
     public List<AttackDataEx> attackBuffer;
 
+    //Animator
+    protected Animator animator;
+    private int _AnimatorAttack;
+    public GameObject other;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         tempFacingV3 = Vector3.right + Vector3.up;
         facingSide = 1f;
         attackBuffer = new List<AttackDataEx>();
+
+        animator = other.GetComponent<Animator>();
+        _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
+        animator.SetInteger(_AnimatorAttack, 0);
     }
     void Update()
     {
+        if (hitByCurrent != 0 && hitByLast == hitByCurrent)
+        {
+            
+            if (Time.time >= timeReset + 1 / 3f)
+            {
+                hitByCurrent = 0;
+                hitByLast = 0;
+            }
+        } // Check for hitbox multiplicity of hits
+
         PassThroughOthers();
+        canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
         /* Manages local player input */ 
         if (!isLocalPlayer)
         {
@@ -68,37 +96,37 @@ public class PlayerController : NetworkBehaviour
 
         isGrounded = rb.position.y < 1.095f;
 
-        if (attackBuffer.Count == 0)
-        {
-            isAttacking = false;
-        }
-
-        if (!isAttacking) // Manages side inputs (TO BE REWORKED)
+        if (canTakeAction) // Manages side inputs (TO BE REWORKED)
             SideInputCheck();
 
         if (isGrounded)
         {
             jumpedMidair = false;
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("light"))
             {
                 Debug.Log("l attack");
                 lightAttack = true;
+                Debug.Log('a');
             } // Light attacks inputs
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("heavy"))
             {
                 Debug.Log("h attack");
                 heavyAttack = true;
             } // Heavy attacks inputs
-            if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("special"))
             {
                 Debug.Log("s attack");
                 specialAttack = true;
             } // Special attacks inputs
+            if (Input.GetButtonDown("block"))
+            {
+                block = true;
+            } // Guard
 
             if (!isAttacking) // Horizontal movement and jumps
             {
                 jumpedMidair = false;
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetButtonDown("jump"))
                 {
                     jump = true;
                 } // Jump
@@ -108,32 +136,22 @@ public class PlayerController : NetworkBehaviour
         } // Grounded decision tree
         else
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("light"))
             {
                 Debug.Log("j.l attack");
                 lightAttack = true;
             } // Normal attacks
-            if (Input.GetButtonDown("Fire2"))
+            if (Input.GetButtonDown("heavy"))
             {
                 Debug.Log("j.h attack");
                 heavyAttack = true;
-                attackCancel = true;
             } // Heavy attacks
-            else
-            {
-                attackCancel = false;
-            }
-            if (Input.GetButtonDown("Fire3"))
+            if (Input.GetButtonDown("special"))
             {
                 Debug.Log("j.s attack");
                 specialAttack = true;
-                attackCancel = true;
             } // Special attacks
-            else
-            {
-                attackCancel = false;
-            }
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("jump"))
             {
                 jump = true;
             }
@@ -141,7 +159,7 @@ public class PlayerController : NetworkBehaviour
     }
     void FixedUpdate()
     {
-        if (!isAttacking)
+        if (canTakeAction)
         {
             if (jump)
             {
@@ -214,20 +232,18 @@ public class PlayerController : NetworkBehaviour
                 }
             } // Midair decision tree
         }
-         // Horizontal movement and combo starters
+        // Horizontal movement and combo starters
         else if (canCancel)
         {
-            Debug.Log(2);
             if (lightAttack)
             {
                 Debug.Log(1);
-                attackCancel = true;
                 isAttacking = true;
                 lightAttack = false;
                 switch (currentMoveInCombo)
                 {
                     case 11:
-                        Debug.Log(0);
+                        Debug.Log(2);
                         currentMoveInCombo = 12;
                         Attack(groundLight2);
                         break;
@@ -240,14 +256,9 @@ public class PlayerController : NetworkBehaviour
             else if (heavyAttack)
             {
                 isAttacking = true;
-                attackCancel = true;
                 heavyAttack = false;
                 switch (currentMoveInCombo)
                 {
-                    case 11:
-                        currentMoveInCombo = 21;
-                        Attack(groundHeavy1);
-                        break;
                     case 13:
                         currentMoveInCombo = 22;
                         Attack(groundHeavy2);
@@ -258,21 +269,12 @@ public class PlayerController : NetworkBehaviour
             else if (specialAttack)
             {
                 isAttacking = true;
-                attackCancel = true;
                 specialAttack = false;
                 switch (currentMoveInCombo)
                 {
                     case 13:
                         currentMoveInCombo = 31;
                         Attack(groundSpecial1);
-                        break;
-                    case 21:
-                        currentMoveInCombo = 32;
-                        Attack(groundSpecial2);
-                        break;
-                    case 31:
-                        currentMoveInCombo = 132;
-                        Attack(jumpSpecial2);
                         break;
                 }
             }
@@ -355,7 +357,6 @@ public class PlayerController : NetworkBehaviour
     
     void Attack(AttackDataEx attack)
     {
-        rb.velocity = Vector3.zero;
         StartCoroutine(AttackPattern(attack));
     }
 
@@ -375,8 +376,9 @@ public class PlayerController : NetworkBehaviour
     {
         public GameObject hurtBox;
         public float activeFrames;
-        public int hbSet;
         public Vector3 playerForce;
+        public bool lastHb;
+
     }
 
     [System.Serializable]
@@ -401,17 +403,21 @@ public class PlayerController : NetworkBehaviour
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
-        while (attackBuffer.Count > 1)
-        { }
+        isAttacking = true;
+        canCancel = true;
+        yield return new WaitWhile(() => attackBuffer.Count != 0);
+        Debug.Log(data.ID);
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         Debug.Log("Attacking with " + data.ID);
+        
         yield return new WaitForSeconds(data.startupFrames / 60);
-        canCancel = false;
+        animator.SetInteger(_AnimatorAttack, data.ID);
+
         for (int i = 0; i < data.hbData.Length; i++)
         {
             rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
             string path = "Prefabs/Hurtboxes/";
-            string hurt = ((data.hbData[i].hurtBox)).name;
+            string hurt = (data.hbData[i].hurtBox).name;
 
             if (hurt.StartsWith("Light"))
                 path += "Light/";
@@ -420,7 +426,12 @@ public class PlayerController : NetworkBehaviour
             else if (hurt.StartsWith("Special"))
                 path += "Special/";
 
-            CmdHurt(path + hurt, gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3), gameObject.transform.rotation);
+            CmdHurt(path + hurt,
+                gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
+                gameObject.transform.rotation,
+                data.damage,
+                data.knockdown,
+                data.ID);
             
             if (data.endsAerial && jumpedMidair == false)
                 jumpedMidair = true;
@@ -428,22 +439,26 @@ public class PlayerController : NetworkBehaviour
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
 
-        canCancel = true;
         attackBuffer.Remove(data);
+        animator.SetInteger(_AnimatorAttack, 0);
         yield return new WaitForSeconds(data.recoveryFrames / 60);
+
         if (attackBuffer.Count == 0)
         {
             currentMoveInCombo = 0;
-            attackCancel = false;
             canCancel = false;
             isAttacking = false;
         }
     }
 
     [Command]
-    void CmdHurt (string hurt, Vector3 pos, Quaternion rot)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, bool knockdown, int ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
+        att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
+        att.GetComponent<PlayerAttackHurtboxing>().damage = damage;
+        att.GetComponent<PlayerAttackHurtboxing>().hbSet = ID;
+        att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
     }
 }
