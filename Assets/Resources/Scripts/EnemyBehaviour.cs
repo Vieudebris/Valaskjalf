@@ -69,7 +69,10 @@ public class EnemyBehaviour : NetworkBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
         else
+        {
             player = GameObject.Find("CameraBullshit").GetComponent<Transform>();
+            canTakeAction = false;
+        }
 
         dist = player.position.x - enemy.position.x;
         nav.stoppingDistance = 1.5F;
@@ -154,7 +157,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
     void Kill()
     {
-
+        GameObject.Destroy(gameObject);
     }
 
     public void Knockdown() // Knocks down if needed, called by PlayerAttackHurtboxing

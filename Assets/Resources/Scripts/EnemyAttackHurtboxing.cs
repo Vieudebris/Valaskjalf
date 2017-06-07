@@ -45,7 +45,7 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 else
                 {
                     playerScript.currentHP -= damage;
-                    GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
+                    GameObject.Find("Health bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
                     playerScript.timeReset = Time.time;
                     playerScript.hitByCurrent = hbSet;
                     playerScript.hitByLast = playerScript.hitByCurrent;
