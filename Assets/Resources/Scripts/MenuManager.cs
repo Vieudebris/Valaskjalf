@@ -5,7 +5,9 @@ using UnityEngine;
 public class MenuManager : MonoBehaviour {
 
     public GameObject display1;
-    public GameObject display2;
+    public GameObject display2a;
+    public GameObject display2b;
+    public GameObject display2c;
     public GameObject displayMult;
     public GameObject displayMatch;
     public GameObject msg1;
@@ -15,13 +17,18 @@ public class MenuManager : MonoBehaviour {
     public GameObject msg4;
     public GameObject msg5;
     public GameObject msg6;
+    public GameObject msg0;
 
     // Use this for initialization
     void Start ()
     {
         display1 = GameObject.Find("Display1");
-        display2 = GameObject.Find("Display2");
-        display2.SetActive(false);
+        display2a = GameObject.Find("Display2a");
+        display2a.SetActive(false);
+        display2b = GameObject.Find("Display2b");
+        display2b.SetActive(false);
+        display2c = GameObject.Find("Display2c");
+        display2c.SetActive(false);
         displayMult = GameObject.Find("DisplayMult");
         displayMult.SetActive(false);
         displayMatch = GameObject.Find("DisplayMatch");
@@ -40,5 +47,7 @@ public class MenuManager : MonoBehaviour {
         msg5.SetActive(false);
         msg6 = GameObject.Find("msg6");
         msg6.SetActive(false);
+        msg0 = GameObject.Find("msg0");
+        msg0.SetActive(false);
     }
 }

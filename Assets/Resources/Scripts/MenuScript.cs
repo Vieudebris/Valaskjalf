@@ -18,11 +18,13 @@ public class MenuScript : MonoBehaviour
 
     public bool isExit, isSolo, isMulti, isOptions;
 
-    public bool isBoxTraining, isNiflheim, isReturn;
+    public bool isMidgard, isNiflheim, isNidavellir, isReturn;
 
     public bool isRestartLevel, isReturnToMenu, isExitGame, isResume;
 
     public bool isCreateMatch, isJoinMatch, isCreate, isMatch1;
+
+    public bool isNexta, isNextb, isPreviousb, isPreviousc, isLocked; 
 
     public static bool solo = false;
 
@@ -49,7 +51,7 @@ public class MenuScript : MonoBehaviour
         if (isSolo)
         {
             menuManager.display1.SetActive(false);
-            menuManager.display2.SetActive(true);
+            menuManager.display2a.SetActive(true);
             solo = true;
         }
 
@@ -59,12 +61,57 @@ public class MenuScript : MonoBehaviour
             menuManager.displayMult.SetActive(true);
         }
 
+        if (isLocked)
+        {
+            menuManager.msg0.SetActive(true);
+        }
+
+        if (isNexta)
+        {
+            menuManager.display2a.SetActive(false);
+            menuManager.display2b.SetActive(true);
+            menuManager.msg0.SetActive(false);
+        }
+
+        if (isNextb)
+        {
+            menuManager.display2b.SetActive(false);
+            menuManager.display2c.SetActive(true);
+            menuManager.msg0.SetActive(false);
+        }
+
+        if (isPreviousb)
+        {
+            menuManager.display2b.SetActive(false);
+            menuManager.display2a.SetActive(true);
+            menuManager.msg0.SetActive(false);
+        }
+
+        if (isPreviousc)
+        {
+            menuManager.display2c.SetActive(false);
+            menuManager.display2b.SetActive(true);
+            menuManager.msg0.SetActive(false);
+        }
+
         if (isReturn)
         {
-            if (menuManager.display2.activeSelf)
+            if (menuManager.display2a.activeSelf)
             {
                 menuManager.display1.SetActive(true);
-                menuManager.display2.SetActive(false);
+                menuManager.display2a.SetActive(false);
+            }
+
+            if (menuManager.display2b.activeSelf)
+            {
+                menuManager.display1.SetActive(true);
+                menuManager.display2b.SetActive(false);
+            }
+
+            if (menuManager.display2c.activeSelf)
+            {
+                menuManager.display1.SetActive(true);
+                menuManager.display2c.SetActive(false);
             }
 
             if (menuManager.displayMult.activeSelf)
@@ -87,7 +134,7 @@ public class MenuScript : MonoBehaviour
                 menuManager.msg2.SetActive(false);
                 menuManager.msg3.SetActive(false);
             }
-
+            menuManager.msg0.SetActive(false);
             NetworkManager.singleton.StopMatchMaker();
 
             if (solo == true)
@@ -107,7 +154,6 @@ public class MenuScript : MonoBehaviour
             menuManager.msg1.SetActive(true);
 
             StartCoroutine(isConnected());
-            
         }
 
         if (isJoinMatch)
@@ -125,12 +171,14 @@ public class MenuScript : MonoBehaviour
             NetworkManager.singleton.matchMaker.JoinMatch(matchesAvailable[0].networkId, "", "", "", 0, 0, OnJoinInternetMatch);
         }
 
-        if (isBoxTraining)
-            NetworkManager.singleton.ServerChangeScene("The Box");
-
+        if (isMidgard)
+            NetworkManager.singleton.ServerChangeScene("Midgard");
 
         if (isNiflheim)
-            SceneManager.LoadScene("Niflheim", LoadSceneMode.Single);
+            NetworkManager.singleton.ServerChangeScene("Niflheim");
+
+        if (isNidavellir)
+            NetworkManager.singleton.ServerChangeScene("Nidavellir");
 
         /*Pause Menu */
         if (isRestartLevel)
@@ -224,7 +272,7 @@ public class MenuScript : MonoBehaviour
         if (NetworkServer.connections.Count == 2)
         {
             menuManager.displayMatch.SetActive(false);
-            menuManager.display2.SetActive(true);
+            menuManager.display2a.SetActive(true);
             menuManager.msg1.SetActive(false);
             menuManager.msg5.SetActive(true);
         }
