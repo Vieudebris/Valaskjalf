@@ -21,13 +21,13 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
-        if (pauseMenu.activeSelf && optiBool)
+        if ((pauseMenu.activeSelf || paused.activeSelf) && optiBool)
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.1f;
             optiBool = false;
         }
         
-        if (!pauseMenu.activeSelf && !optiBool)
+        if (!pauseMenu.activeSelf && !paused.activeSelf && !optiBool)
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.5f;
             optiBool = true;

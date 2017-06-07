@@ -130,7 +130,7 @@ public class MenuScript : MonoBehaviour
 
 
         if (isNiflheim)
-            SceneManager.LoadScene("Niflheim", LoadSceneMode.Single);
+            NetworkManager.singleton.ServerChangeScene("Niflheim");
 
         /*Pause Menu */
         if (isRestartLevel)
