@@ -38,8 +38,9 @@ public class PlayerController : NetworkBehaviour
     public float stunAtTime;
 
     public bool isBlocking = false;
-    public int maxBlockPressure = 20;
-    public int blockPressure = 20;
+    public float maxBlockPressure = 20;
+    public float currentBlockPressure = 20;
+    public float zbeb;
     private float timePressure;
 
     public int hitByCurrent = 0;
@@ -87,18 +88,19 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
+        zbeb = currentBlockPressure / maxBlockPressure;
         /* Manages local player input */ 
         if (!isLocalPlayer)
         {
             return;
         }
 
-        if (blockPressure < 20)
+        if (currentBlockPressure < 20)
         {
             if (Time.time >= timePressure + 1 / 2f)
             {
                 timePressure = Time.time;
-                blockPressure = Mathf.Min(blockPressure + 1, maxBlockPressure);
+                currentBlockPressure = Mathf.Min(currentBlockPressure + 1, maxBlockPressure);
             }
         }
 

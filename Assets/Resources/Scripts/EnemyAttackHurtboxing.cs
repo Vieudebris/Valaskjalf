@@ -41,8 +41,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
             {
                 if (playerScript.isBlocking)
                 {
-                    playerScript.blockPressure -= 1;
-                    GameObject.Find("UI/block").transform.localScale = new Vector3(Mathf.Max((playerScript.blockPressure / playerScript.maxBlockPressure), 0), 1, 1);
+                    playerScript.currentBlockPressure -= 1;
+                    GameObject.Find("UI/block").transform.localScale = new Vector3(Mathf.Max((playerScript.currentBlockPressure / playerScript.maxBlockPressure), 0), 1, 1);
                 }
                 else
                 {

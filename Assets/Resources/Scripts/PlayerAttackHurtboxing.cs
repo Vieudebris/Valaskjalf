@@ -49,7 +49,11 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
                 enemyScript.stunAtTime = Time.time;
                 enemyScript.stunFrames = stun;
 
-                playerScript.currentMeter += meterValue;
+                if (playerScript.currentMeter != 100)
+                {
+                    playerScript.currentMeter = Mathf.Min(100, playerScript.currentMeter + meterValue);
+                }
+
                 GameObject.Find("UI/meter").transform.localScale = new Vector3(Mathf.Min((playerScript.currentMeter / playerScript.totalMeter), 1), 1, 1);
 
                 if (knockdown)
