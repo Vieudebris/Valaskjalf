@@ -17,6 +17,7 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
     public bool knockdown;
     public int damage;
+    public int meterValue;
 
     void Start()
     {
@@ -33,22 +34,28 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
     void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Enemy" && other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
+        if (other.tag == "Enemy")
         {
             enemyScript = other.GetComponent<EnemyBehaviour>();
-            enemyScript.timeReset = Time.time;
-            enemyScript.health -= damage;
-            enemyScript.hitByCurrent = hbSet;
-            enemyScript.hitByLast = enemyScript.hitByCurrent;
 
-            if (knockdown)
+            if (other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
             {
-                enemyScript.Knockdown();
-            }
-            else
-            {
-                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+                enemyScript.timeReset = Time.time;
+                enemyScript.health -= damage;
+                enemyScript.hitByCurrent = hbSet;
+                enemyScript.hitByLast = enemyScript.hitByCurrent;
+
+                playerScript.currentMeter += meterValue;
+
+                if (knockdown)
+                {
+                    enemyScript.Knockdown();
+                }
+                else
+                {
+                    other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+                }
             }
         }
     } // Called whenever something gets in the instantiated hurtbox

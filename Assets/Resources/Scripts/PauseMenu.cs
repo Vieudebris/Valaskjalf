@@ -7,6 +7,8 @@ public class PauseMenu : MonoBehaviour
     GameObject paused;
     public GameObject pauseMenu;
 
+    public bool optiBool = true;
+
     
     void Start()
     {
@@ -19,6 +21,18 @@ public class PauseMenu : MonoBehaviour
     
     void Update()
     {
+        if (pauseMenu.activeSelf && optiBool)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.1f;
+            optiBool = false;
+        }
+        
+        if (!pauseMenu.activeSelf && !optiBool)
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().volume = 0.5f;
+            optiBool = true;
+        }
+
         if (Input.GetButtonDown("Submit") && !pauseMenu.activeSelf)
         {
             if (Time.timeScale == 1)

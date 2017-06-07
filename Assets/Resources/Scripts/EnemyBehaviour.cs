@@ -33,7 +33,10 @@ public class EnemyBehaviour : NetworkBehaviour
     private bool isAttacking = false;
     private bool jumpedMidair = false;
     public int health = 2000;
+
     private bool isStunned = false;
+    public bool stunFrames;
+
     private bool canTakeAction;
 
     public int hitByCurrent = 0;

@@ -27,11 +27,17 @@ public class PlayerController : NetworkBehaviour
     private bool jumpedMidair = false;
     public float totalHP = 10000;
     public float currentHP;
+    public float totalMeter = 100;
+    public float currentMeter;
 
-    public bool canTakeAction; // = !(isAttacking || isStunned || isBlocking || attackBuffer.Count < 1)
+    public bool canTakeAction; // = !(isAttacking || isStunned || attackBuffer.Count < 1)
     public bool isAttacking = false;
-    private bool isStunned = false;
-    private bool isBlocking = false;
+    public bool isStunned = false;
+
+    public bool isBlocking = false;
+    public int maxBlockPressure = 20;
+    public int blockPressure = 20;
+    private float timePressure;
 
     public int hitByCurrent = 0;
     public int hitByLast = 0;
@@ -71,19 +77,30 @@ public class PlayerController : NetworkBehaviour
         animator = other.GetComponent<Animator>();
         _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
         animator.SetInteger(_AnimatorAttack, 0);
+
         currentHP = totalHP;
+        currentMeter = 0;
+        timePressure = Time.time;
     }
     void Update()
     {
+        if (blockPressure < 20)
+        {
+            if (Time.time >= timePressure + 1/2f)
+            {
+                timePressure = Time.time;
+                blockPressure = Mathf.Min(blockPressure+1, maxBlockPressure);
+            }
+        }
+
         if (hitByCurrent != 0 && hitByLast == hitByCurrent)
         {
-            
             if (Time.time >= timeReset + 1 / 3f)
             {
                 hitByCurrent = 0;
                 hitByLast = 0;
             }
-        } // Check for hitbox multiplicity of hits
+        } // Check for hitbox multiple hits
 
         PassThroughOthers();
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
@@ -105,7 +122,6 @@ public class PlayerController : NetworkBehaviour
             {
                 Debug.Log("l attack");
                 lightAttack = true;
-                Debug.Log('a');
             } // Light attacks inputs
             if (Input.GetButtonDown("heavy"))
             {
@@ -117,10 +133,15 @@ public class PlayerController : NetworkBehaviour
                 Debug.Log("s attack");
                 specialAttack = true;
             } // Special attacks inputs
-            if (Input.GetButtonDown("block"))
+            if (Input.GetButton("block"))
             {
+                Debug.Log("block");
                 block = true;
-            } // Guard
+            }
+            else
+            {
+                block = false;
+            }// Guard
 
             if (!isAttacking) // Horizontal movement and jumps
             {
@@ -160,7 +181,7 @@ public class PlayerController : NetworkBehaviour
     {
         if (canTakeAction)
         {
-            if (jump)
+            if (jump && !isBlocking)
             {
                 Debug.Log("jump");
                 Jump();
@@ -168,6 +189,16 @@ public class PlayerController : NetworkBehaviour
 
             if (isGrounded)
             {
+                if (block)
+                {
+                    isBlocking = true;
+                    return;
+                }
+                else
+                {
+                    isBlocking = false;
+                }
+
                 if (neutral) // Checked via SideInputCheck()
                 {
                     rb.velocity = Vector3.zero;
@@ -236,7 +267,6 @@ public class PlayerController : NetworkBehaviour
         {
             if (lightAttack)
             {
-                Debug.Log(1);
                 isAttacking = true;
                 lightAttack = false;
                 switch (currentMoveInCombo)
@@ -309,7 +339,6 @@ public class PlayerController : NetworkBehaviour
 
     } // Used to check whether the player is inputting any side
 
-
     void PassThroughOthers()     //So that players can pass through each other
     {
         GameObject[] otherPlayer;
@@ -359,12 +388,6 @@ public class PlayerController : NetworkBehaviour
         StartCoroutine(AttackPattern(attack));
     }
 
-    public void CancelCalculations()
-    {
-        
-    }
-    
-
     [System.Serializable]
     public class AttackData
     {
@@ -390,6 +413,7 @@ public class PlayerController : NetworkBehaviour
 
         public float stunFrames;
         public int damage;
+        public int meterValue;
 
         public bool endsAerial;
         public bool knockdown;
@@ -406,6 +430,7 @@ public class PlayerController : NetworkBehaviour
         
         yield return new WaitForSeconds(data.startupFrames / 60);
         animator.SetInteger(_AnimatorAttack, data.ID);
+        
 
         for (int i = 0; i < data.hbData.Length; i++)
         {
@@ -424,6 +449,7 @@ public class PlayerController : NetworkBehaviour
                 gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
                 gameObject.transform.rotation,
                 data.damage,
+                data.meterValue,
                 data.knockdown,
                 data.ID);
             
@@ -446,7 +472,7 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, bool knockdown, int ID)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, int meterValue, bool knockdown, int ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
         att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;

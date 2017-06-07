@@ -30,28 +30,37 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     {
         Destroy(gameObject, lifeSpan / 60);
     }
-    
+
     void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Player") && other.gameObject.GetComponent<PlayerController>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
+        if (other.tag == "Player")
         {
             playerScript = other.GetComponent<PlayerController>();
-            playerScript.currentHP -= damage;
-            Debug.Log(playerScript.currentHP / playerScript.totalHP);
-            GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
-            playerScript.timeReset = Time.time;
-            playerScript.hitByCurrent = hbSet;
-            playerScript.hitByLast = playerScript.hitByCurrent;
+            if (playerScript.hitByCurrent != hbSet)
+            {
+                if (playerScript.isBlocking)
+                {
+                    playerScript.blockPressure -= 1;
+                }
+                else
+                {
+                    playerScript.currentHP -= damage;
+                    GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
+                    playerScript.timeReset = Time.time;
+                    playerScript.hitByCurrent = hbSet;
+                    playerScript.hitByLast = playerScript.hitByCurrent;
 
-            if (knockdown)
-            {
-                other.GetComponent<EnemyBehaviour>().Knockdown();
-            }
-            else
-            {
-                other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+                    if (knockdown)
+                    {
+                        other.GetComponent<EnemyBehaviour>().Knockdown();
+                    }
+                    else
+                    {
+                        other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                        other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
+                    }
+                }    
             }
         }
-    } // Called whenever something gets in the instantiated hurtbox
-}
+    }
+}// Called whenever something gets in the instantiated hurtbox
