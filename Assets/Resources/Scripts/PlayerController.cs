@@ -33,6 +33,9 @@ public class PlayerController : NetworkBehaviour
     public bool canTakeAction; // = !(isAttacking || isStunned || attackBuffer.Count < 1)
     public bool isAttacking = false;
     public bool isStunned = false;
+    public float stunFrames;
+    public float stunTime;
+    public float stunAtTime;
 
     public bool isBlocking = false;
     public int maxBlockPressure = 20;
@@ -84,12 +87,18 @@ public class PlayerController : NetworkBehaviour
     }
     void Update()
     {
+        /* Manages local player input */ 
+        if (!isLocalPlayer)
+        {
+            return;
+        }
+
         if (blockPressure < 20)
         {
-            if (Time.time >= timePressure + 1/2f)
+            if (Time.time >= timePressure + 1 / 2f)
             {
                 timePressure = Time.time;
-                blockPressure = Mathf.Min(blockPressure+1, maxBlockPressure);
+                blockPressure = Mathf.Min(blockPressure + 1, maxBlockPressure);
             }
         }
 
@@ -103,16 +112,22 @@ public class PlayerController : NetworkBehaviour
         } // Check for hitbox multiple hits
 
         PassThroughOthers();
+
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
-        /* Manages local player input */ 
-        if (!isLocalPlayer)
-        {
-            return;
-        }
 
         isGrounded = rb.position.y < 1.095f;
 
-        if (canTakeAction) // Manages side inputs (TO BE REWORKED)
+        isStunned = stunFrames != 0;
+        if (isStunned)
+        {
+            if (Time.time >= stunFrames / 60 + stunAtTime)
+            {
+                isStunned = false;
+                stunFrames = 0;
+            }
+        }
+
+        if (canTakeAction && !isBlocking) // Manages side inputs (TO BE REWORKED)
             SideInputCheck();
 
         if (isGrounded)
