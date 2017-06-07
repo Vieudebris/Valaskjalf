@@ -66,10 +66,10 @@ public class EnemyBehaviour : NetworkBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
         else
-            player = enemy;
+            player = GameObject.Find("CameraBullshit").GetComponent<Transform>();
 
         dist = player.position.x - enemy.position.x;
-        nav.stoppingDistance = 2;
+        nav.stoppingDistance = 1.5F;
         SideCheck();
         PassThroughOthers();
 
@@ -239,7 +239,7 @@ public class EnemyBehaviour : NetworkBehaviour
         att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
         att.GetComponent<EnemyAttackHurtboxing>().damage = damage;
         att.GetComponent<EnemyAttackHurtboxing>().hbSet = ID;
-        att.transform.parent = GameObject.FindWithTag("Player").transform;
+        att.transform.parent = GameObject.FindWithTag("Enemy").transform;
         NetworkServer.Spawn(att);
     }
 }

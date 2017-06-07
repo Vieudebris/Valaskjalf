@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 public class EnemyAttackHurtboxing : NetworkBehaviour
 {
@@ -22,20 +23,22 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
         GameObject player = GameObject.Find("Player_Network(Clone)");  //For the network
         playerScript = player.GetComponent<PlayerController>();
         timeWait = Time.time;
+        //Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void Update()
     {
         Destroy(gameObject, lifeSpan / 60);
     }
-
+    
     void OnTriggerEnter(Collider other)
     {
-        if ((other.tag == "Player") && other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
+        if ((other.tag == "Player") && other.gameObject.GetComponent<PlayerController>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
         {
-
             playerScript = other.GetComponent<PlayerController>();
-            playerScript.health -= damage;
+            playerScript.currentHP -= damage;
+            Debug.Log(playerScript.currentHP / playerScript.totalHP);
+            GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
             playerScript.timeReset = Time.time;
             playerScript.hitByCurrent = hbSet;
             playerScript.hitByLast = playerScript.hitByCurrent;

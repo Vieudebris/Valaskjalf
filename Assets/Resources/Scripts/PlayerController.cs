@@ -25,7 +25,8 @@ public class PlayerController : NetworkBehaviour
     // Player state
     private bool isGrounded = true;
     private bool jumpedMidair = false;
-    public int health = 10000;
+    public float totalHP = 10000;
+    public float currentHP;
 
     public bool canTakeAction; // = !(isAttacking || isStunned || isBlocking || attackBuffer.Count < 1)
     public bool isAttacking = false;
@@ -35,10 +36,7 @@ public class PlayerController : NetworkBehaviour
     public int hitByCurrent = 0;
     public int hitByLast = 0;
     public float timeReset;
-
-    //UI
-    public GUIText playerHealthT;
-
+    
     // Attack logic
     private Vector3 hurtBoxFix = new Vector3(0, -0.5f, 0);
     private Vector3 tempFacingV3;
@@ -73,6 +71,7 @@ public class PlayerController : NetworkBehaviour
         animator = other.GetComponent<Animator>();
         _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
         animator.SetInteger(_AnimatorAttack, 0);
+        currentHP = totalHP;
     }
     void Update()
     {
@@ -364,12 +363,7 @@ public class PlayerController : NetworkBehaviour
     {
         
     }
-
-
-    public override void OnStartLocalPlayer()   //Colors the local player in blue (needs to be changed)
-    {
-        GetComponentInChildren<MeshRenderer>().material.color = Color.blue;
-    }
+    
 
     [System.Serializable]
     public class AttackData
