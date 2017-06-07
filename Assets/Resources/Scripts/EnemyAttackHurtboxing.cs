@@ -42,11 +42,12 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 if (playerScript.isBlocking)
                 {
                     playerScript.blockPressure -= 1;
+                    GameObject.Find("UI/block").transform.localScale = new Vector3(Mathf.Max((playerScript.blockPressure / playerScript.maxBlockPressure), 0), 1, 1);
                 }
                 else
                 {
                     playerScript.currentHP -= damage;
-                    GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
+                    GameObject.Find("UI/health").transform.localScale = new Vector3(Mathf.Max((playerScript.currentHP / playerScript.totalHP), 0), 1, 1);
 
                     playerScript.stunAtTime = Time.time;
                     playerScript.stunFrames = stun;
