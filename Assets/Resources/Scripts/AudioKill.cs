@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class AudioKill : MonoBehaviour {
 
-    void Start()
-    {
-        Destroy(gameObject, 2);
-    }
+	// Use this for initialization
+	void Start () {
+        Destroy(gameObject, 4);
+	}
 }

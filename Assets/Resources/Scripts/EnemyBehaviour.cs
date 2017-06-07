@@ -80,7 +80,10 @@ public class EnemyBehaviour : NetworkBehaviour
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
         else
+        {
             player = GameObject.Find("CameraBullshit").GetComponent<Transform>();
+            canTakeAction = false;
+        }
 
         dist = player.position.x - enemy.position.x;
         nav.stoppingDistance = 1.5F;
@@ -165,7 +168,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
     void Kill()
     {
-
+        Destroy(gameObject);
     }
 
     public void Knockdown() // Knocks down if needed, called by PlayerAttackHurtboxing
@@ -192,7 +195,7 @@ public class EnemyBehaviour : NetworkBehaviour
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         yield return new WaitForSeconds(data.startupFrames / 60);
 
-        Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
+        GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
 
         for (int i = 0; i < data.hbData.Length; i++)
         {
@@ -211,7 +214,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
-        
+
         attackBuffer.Remove(data);
         yield return new WaitForSeconds(data.recoveryFrames / 60);
 

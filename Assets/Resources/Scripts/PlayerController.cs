@@ -455,6 +455,7 @@ public class PlayerController : NetworkBehaviour
         public bool endsAerial;
         public bool knockdown;
         public bool isEnder;
+
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
@@ -468,8 +469,7 @@ public class PlayerController : NetworkBehaviour
         yield return new WaitForSeconds(data.startupFrames / 60);
         animator.SetInteger(_AnimatorAttack, data.ID);
 
-        Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
-
+        GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform);
 
         for (int i = 0; i < data.hbData.Length; i++)
         {

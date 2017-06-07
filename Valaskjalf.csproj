@@ -78,6 +78,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireBaseScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireConstantBaseScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireLightScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\Resources\Scripts\AddArbitraryForce.cs" />
     <Compile Include="Assets\Resources\Scripts\AudioKill.cs" />
     <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
@@ -99,7 +106,8 @@
   <ItemGroup>
     <None Include="Assets\Resources\Audio\explosions\info.txt" />
     <None Include="Assets\Resources\Audio\hits\README.txt" />
-    <None Include="Assets\Resources\Audio\melee sounds\melee.txt" />
+    <None Include="Assets\Resources\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
+    <None Include="Assets\Resources\PyroParticles\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Shader\VertexColored.shader" />
     <None Include="Assets\_Scenes\Menu\Viking_Readme.txt" />
