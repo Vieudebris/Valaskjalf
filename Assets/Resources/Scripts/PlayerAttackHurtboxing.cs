@@ -53,9 +53,6 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
                 {
                     playerScript.currentMeter = Mathf.Min(100, playerScript.currentMeter + meterValue);
                 }
-
-                GameObject.Find("UI/meter").transform.localScale = new Vector3(Mathf.Min((playerScript.currentMeter / playerScript.totalMeter), 1), 1, 1);
-
                 if (knockdown)
                 {
                     enemyScript.Knockdown();

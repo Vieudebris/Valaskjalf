@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Audio\explosions\info.txt" />
+    <None Include="Assets\Resources\Audio\hits\README.txt" />
     <None Include="Assets\Resources\Audio\melee sounds\melee.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Shader\VertexColored.shader" />

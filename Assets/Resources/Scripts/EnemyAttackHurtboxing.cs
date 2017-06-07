@@ -39,15 +39,14 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
             playerScript = other.GetComponent<PlayerController>();
             if (playerScript.hitByCurrent != hbSet)
             {
+                playerScript.affectedUI = true;
                 if (playerScript.isBlocking)
                 {
                     playerScript.currentBlockPressure -= 1;
-                    GameObject.Find("UI/block").transform.localScale = new Vector3(Mathf.Max((playerScript.currentBlockPressure / playerScript.maxBlockPressure), 0), 1, 1);
                 }
                 else
                 {
                     playerScript.currentHP -= damage;
-                    GameObject.Find("UI/health").transform.localScale = new Vector3(Mathf.Max((playerScript.currentHP / playerScript.totalHP), 0), 1, 1);
 
                     playerScript.stunAtTime = Time.time;
                     playerScript.stunFrames = stun;

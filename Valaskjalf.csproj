@@ -78,22 +78,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Valaskjalf.Plugins.csproj">
-      <Project>{67E94C68-21AF-2FE5-818C-4930534F248B}</Project>
-      <Name>Valaskjalf.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Assets\Resources\Scripts\AddArbitraryForce.cs" />
+    <Compile Include="Assets\Resources\Scripts\AudioKill.cs" />
     <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Resources\Scripts\EnemyAttackHurtboxing.cs" />
     <Compile Include="Assets\Resources\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Resources\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Resources\Scripts\ForSolo.cs" />
-    <Compile Include="Assets\Resources\Scripts\GameController.cs" />
     <Compile Include="Assets\Resources\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Resources\Scripts\MenuScript.cs" />
-    <Compile Include="Assets\Resources\Scripts\NewBehaviourScript.cs" />
     <Compile Include="Assets\Resources\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerAttackHurtboxing.cs" />
     <Compile Include="Assets\Resources\Scripts\PlayerController.cs" />
@@ -105,14 +98,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Audio\explosions\info.txt" />
+    <None Include="Assets\Resources\Audio\hits\README.txt" />
     <None Include="Assets\Resources\Audio\melee sounds\melee.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Shader\VertexColored.shader" />
-    <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
-    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
-    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
     <None Include="Assets\_Scenes\Menu\Viking_Readme.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
