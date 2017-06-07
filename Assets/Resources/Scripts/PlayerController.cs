@@ -40,7 +40,6 @@ public class PlayerController : NetworkBehaviour
     public bool isBlocking = false;
     public float maxBlockPressure = 20;
     public float currentBlockPressure = 20;
-    public float zbeb;
     private float timePressure;
 
     public int hitByCurrent = 0;
@@ -54,22 +53,28 @@ public class PlayerController : NetworkBehaviour
     public bool canCancel = false;
     public int currentMoveInCombo = 0;
 
-    // Attacks
-    public AttackDataEx groundLight1, groundLight2, groundLight3;
-    public AttackDataEx jumpLight1, jumpLight2;
-
-    public AttackDataEx groundHeavy1, groundHeavy2;
-    public AttackDataEx jumpHeavy1, jumpHeavy2;
-
-    public AttackDataEx groundSpecial1, groundSpecial2;
-    public AttackDataEx jumpSpecial1, jumpSpecial2;
-
-    public List<AttackDataEx> attackBuffer;
-
     //Animator
     protected Animator animator;
     private int _AnimatorAttack;
     public GameObject other;
+
+    // UI
+    public bool affectedUI;
+    private GameObject blockUI;
+    private GameObject healthUI;
+    private GameObject meterUI;
+
+    // Attacks
+    public AttackDataEx groundLight1, groundLight2, groundLight3;
+    public AttackDataEx jumpLight1;
+
+    public AttackDataEx groundHeavy1, groundHeavy2;
+    public AttackDataEx jumpHeavy1;
+
+    public AttackDataEx groundSpecial1;
+    public AttackDataEx jumpSpecial1;
+
+    public List<AttackDataEx> attackBuffer;
 
     void Awake()
     {
@@ -85,14 +90,29 @@ public class PlayerController : NetworkBehaviour
         currentHP = totalHP;
         currentMeter = 0;
         timePressure = Time.time;
+
+        // UI setup
+        blockUI = GameObject.Find("UI/blockBar/block");
+        meterUI = GameObject.Find("UI/meterBar/meter");
+        healthUI = GameObject.Find("UI/healthBar/health");
+
+        meterUI.transform.localScale = Vector3.zero;
     }
+
     void Update()
     {
-        zbeb = currentBlockPressure / maxBlockPressure;
         /* Manages local player input */ 
         if (!isLocalPlayer)
         {
             return;
+        }
+
+        if (affectedUI)
+        {
+            blockUI.transform.localScale = new Vector3(Mathf.Max((currentBlockPressure / maxBlockPressure), 0), 1, 1);
+            healthUI.transform.localScale = new Vector3(Mathf.Max((currentHP / totalHP), 0), 1, 1);
+            meterUI.transform.localScale = new Vector3(Mathf.Min((currentMeter / totalMeter), 1), 1, 1);
+            affectedUI = false;
         }
 
         if (currentBlockPressure < 20)
@@ -117,7 +137,7 @@ public class PlayerController : NetworkBehaviour
 
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
 
-        isGrounded = rb.position.y < 1.095f;
+        isGrounded = rb.position.y < 1.1f;
 
         isStunned = stunFrames != 0;
         if (isStunned)
@@ -424,9 +444,9 @@ public class PlayerController : NetworkBehaviour
         public float startupFrames;
         public float recoveryFrames;
 
-        public ParticleSystem SFX;
+        public ParticleSystem AFX;
         public Animation anim;
-        public AudioClip sound;
+        public GameObject sound;
 
         public float stunFrames;
         public int damage;
@@ -447,7 +467,9 @@ public class PlayerController : NetworkBehaviour
         
         yield return new WaitForSeconds(data.startupFrames / 60);
         animator.SetInteger(_AnimatorAttack, data.ID);
-        
+
+        Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
+
 
         for (int i = 0; i < data.hbData.Length; i++)
         {

@@ -25,7 +25,7 @@ namespace UnityStandardAssets._2D
                 m_Player = GameObject.FindGameObjectWithTag("CameraBis").transform;
 
             //Also manages UI init
-            GameObject.Find("UI/meter").transform.localScale = Vector3.zero;
+            GameObject.Find("UI/meterBar/meter").transform.localScale = Vector3.zero;
         }
 
 

@@ -25,8 +25,8 @@ public class EnemyBehaviour : NetworkBehaviour
     private Vector3 tempFacingV3;
 
     // Attacks
-    public AttackDataEx attack1, attack2, attack3;
-    public List<AttackDataEx> attackBuffer;
+    public PlayerController.AttackDataEx attack1, attack2, attack3;
+    public List<PlayerController.AttackDataEx> attackBuffer;
 
     // Enemy state
     private bool isGrounded = true;
@@ -51,7 +51,7 @@ public class EnemyBehaviour : NetworkBehaviour
         enemy = GetComponent<Transform>();
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.autoBraking = false;
-        attackBuffer = new List<AttackDataEx>();
+        attackBuffer = new List<PlayerController.AttackDataEx>();
     }
 
     void Update()
@@ -182,45 +182,18 @@ public class EnemyBehaviour : NetworkBehaviour
     }
 
     //Creates Enemy's attacks
-    void Attack(AttackDataEx attack)
+    void Attack(PlayerController.AttackDataEx attack)
     {
         StartCoroutine(AttackPattern(attack));
     }
 
-    [System.Serializable]
-    public class AttackData
-    {
-        public GameObject hurtBox;
-        public float activeFrames;
-        public Vector3 playerForce;
-        public bool lastHb;
-    }
-
-    [System.Serializable]
-    public class AttackDataEx
-    {
-        public int ID;
-
-        public AttackData[] hbData;
-        public float startupFrames;
-        public float recoveryFrames;
-
-        public ParticleSystem SFX;
-        public Animation anim;
-        public AudioClip sound;
-
-        public float stunFrames;
-        public int damage;
-
-        public bool endsAerial;
-        public bool knockdown;
-        public bool isEnder;
-    }
-
-    IEnumerator AttackPattern(AttackDataEx data)
+    IEnumerator AttackPattern(PlayerController.AttackDataEx data)
     {
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         yield return new WaitForSeconds(data.startupFrames / 60);
+
+        Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
+
         for (int i = 0; i < data.hbData.Length; i++)
         {
             rb.AddForce(Vector3.Scale(data.hbData[i].playerForce, tempFacingV3), ForceMode.Impulse);
