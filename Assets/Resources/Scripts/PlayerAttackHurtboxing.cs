@@ -18,6 +18,7 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
     public bool knockdown;
     public int damage;
     public int meterValue;
+    public float stun;
 
     void Start()
     {
@@ -44,6 +45,9 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
                 enemyScript.health -= damage;
                 enemyScript.hitByCurrent = hbSet;
                 enemyScript.hitByLast = enemyScript.hitByCurrent;
+
+                enemyScript.stunAtTime = Time.time;
+                enemyScript.stunFrames = stun;
 
                 playerScript.currentMeter += meterValue;
 

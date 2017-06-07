@@ -35,7 +35,8 @@ public class EnemyBehaviour : NetworkBehaviour
     public int health = 2000;
 
     private bool isStunned = false;
-    public bool stunFrames;
+    public float stunFrames;
+    public float stunAtTime;
 
     private bool canTakeAction;
 
@@ -55,6 +56,16 @@ public class EnemyBehaviour : NetworkBehaviour
 
     void Update()
     {
+        isStunned = stunFrames != 0;
+        if (isStunned)
+        {
+            if (Time.time >= stunFrames / 60 + stunAtTime)
+            {
+                isStunned = false;
+                stunFrames = 0;
+            }
+        }
+
         if (hitByCurrent != 0 && hitByLast == hitByCurrent)
         {
             timeReset = Time.time;
@@ -221,6 +232,7 @@ public class EnemyBehaviour : NetworkBehaviour
                 gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
                 gameObject.transform.rotation,
                 data.damage,
+                data.stunFrames,
                 data.knockdown,
                 data.ID);
 
@@ -236,12 +248,13 @@ public class EnemyBehaviour : NetworkBehaviour
     } // Still doesn't manage network, check CmdHurt arguments
 
     [Command]
-    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, bool knockdown, int ID)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, float stunFrames, bool knockdown, int ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
         att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
         att.GetComponent<EnemyAttackHurtboxing>().damage = damage;
         att.GetComponent<EnemyAttackHurtboxing>().hbSet = ID;
+        att.GetComponent<EnemyAttackHurtboxing>().stun = stunFrames;
         att.transform.parent = GameObject.FindWithTag("Enemy").transform;
         NetworkServer.Spawn(att);
     }

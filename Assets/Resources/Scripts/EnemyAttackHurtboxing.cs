@@ -16,6 +16,7 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     public int hbSet;
     public bool knockdown;
     public int damage;
+    public float stun;
 
     void Start()
     {
@@ -46,6 +47,10 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 {
                     playerScript.currentHP -= damage;
                     GameObject.Find("bar").transform.localScale = new Vector3((playerScript.currentHP / playerScript.totalHP), 1, 1);
+
+                    playerScript.stunAtTime = Time.time;
+                    playerScript.stunFrames = stun;
+
                     playerScript.timeReset = Time.time;
                     playerScript.hitByCurrent = hbSet;
                     playerScript.hitByLast = playerScript.hitByCurrent;
