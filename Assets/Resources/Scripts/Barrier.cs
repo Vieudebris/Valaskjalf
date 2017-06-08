@@ -1,22 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Barrier : MonoBehaviour {
+public class Barrier : NetworkBehaviour {
 
     public CameraFollow cameraScript;
     public bool turnOff;
     public GameObject[] barriers;
+    public GameObject spawner;
+    public EnemySpawner script;
 
     private bool hasBeenActivated = false;
 
 	// Use this for initialization
 	void Start () {
 
-        cameraScript = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
         barriers = new GameObject[2];
         barriers[0] = GameObject.Find("left");
         barriers[1] = GameObject.Find("right");
+
+        cameraScript = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
+        script = spawner.GetComponent<EnemySpawner>();
 
         barriers[0].SetActive(false);
         barriers[1].SetActive(false);
@@ -43,7 +48,11 @@ public class Barrier : MonoBehaviour {
             barriers[1].SetActive(true);
 
             hasBeenActivated = true;
+
+            script.enable = true;
         }
+
+        turnOff = true;
     }
 
     IEnumerator SmoothCamLock()
