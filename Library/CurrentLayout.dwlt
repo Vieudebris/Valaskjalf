@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 232, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 23
+  controlID: 37
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 21
+  controlID: 135
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -182,7 +182,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 492}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 0
-  controlID: 22
+  controlID: 136
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -201,8 +201,8 @@ MonoBehaviour:
     y: 0
     width: 408
     height: 566
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_MinSize: {x: 204, y: 342}
   m_MaxSize: {x: 4004, y: 8042}
   vertical: 1
-  controlID: 122
+  controlID: 137
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -414,24 +414,24 @@ MonoBehaviour:
   m_LastProjectPath: "E:\\Cours\\EPITA\\PROJET\\Valaskj\xE1lf\\Valaskjalf"
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 33.141373}
-    m_SelectedIDs: 142b0000
-    m_LastClickedID: 11028
-    m_ExpandedIDs: 000000000e26000010260000122600001c260000862600004a2700004c270000f82700003e280000642800007a28000050290000b02a0000542c0000562c0000582c00005a2c00005c2c00005e2c0000602c0000622c0000642c0000662c0000682c00006a2c00006c2c00006e2c0000702c0000722c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 73}
+    m_SelectedIDs: 6e330000
+    m_LastClickedID: 13166
+    m_ExpandedIDs: 00000000202e0000222e0000242e00002e2e0000a62e00006c2f00006e2f0000b02f00002a300000743000009e300000b8300000f230000090310000fa320000a2390000a4390000a6390000a8390000aa390000ac390000ae390000b0390000b2390000b4390000b6390000b8390000ba390000bc39000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: Nidavellir
-      m_OriginalName: Nidavellir
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10298
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -445,7 +445,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 6eaafeff
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000e26000010260000122600001c260000862600004a2700004c270000f82700003e280000642800007a28000050290000b02a0000542c0000562c0000582c00005a2c00005c2c00005e2c0000602c0000622c0000642c0000662c0000682c00006a2c00006c2c00006e2c0000702c0000722c0000
+    m_ExpandedIDs: 00000000202e0000222e0000242e00002e2e0000a62e00006c2f00006e2f0000b02f00002a300000743000009e300000b8300000f230000090310000fa320000a2390000a4390000a6390000a8390000aa390000ac390000ae390000b0390000b2390000b4390000b6390000b8390000ba390000bc390000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -476,18 +476,18 @@ MonoBehaviour:
     m_ExpandedInstanceIDs: bc240000de230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: The Box
+      m_OriginalName: The Box
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 12292
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_CreateAssetUtility:
@@ -528,9 +528,9 @@ MonoBehaviour:
     height: 545
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 46260000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 3c28ffff1a2cfffffc2cffff322effffea2fffff8430ffff2231ffff9c31ffff0e34ffffe236ffff4aa3ffff5ea3ffff88a3ffff32b8ffff8afaffffe2fbffff00000000462e0000
+    m_ExpandedIDs: f4f8f7ff9cf9f7ff74fbf7ff30fdf7ffcefdf7ff88fef7fff2fef7ff9404f8ff4e05f8ff2a07f8ffea08f8ff8c09f8ff4a0af8ffb80af8ff9e0bf8ffae0df8ff660ef8ff3e10f8fffa11f8ff9812f8ff5213f8ffbc13f8ffde36f8ff8437f8ff5c39f8ff183bf8ffb63bf8ff703cf8ffda3cf8ff9e53f8ff9a54f8ff7256f8ff2e58f8ffcc58f8ff8659f8fff059f8ffa6b2f8ff60b3f8ff38b5f8fff4b6f8ff92b7f8ff4cb8f8ffb6b8f8fff2eef8ffa2eff8ff7ef1f8ff3ef3f8ffe0f3f8ff9ef4f8ff0cf5f8ffeaf5f8fff6f7f8ffa6f8f8ff7efaf8ff3afcf8ffd8fcf8ff92fdf8fffcfdf8fff834f9ffb835f9ff9037f9ff4c39f9ffea39f9ffa43af9ff0e3bf9ff8275f9ff2876f9ff0478f9ffc479f9ff667af9ff247bf9ff927bf9ff4287f9ffae89f9ffa08af9ff7c8cf9ff3c8ef9ffde8ef9ff9c8ff9ff0a90f9ff3e21faff1a78faff7ca2faff12a5faffcca5faffa8a7faff68a9faff0aaafaff16aafaff92aafafffed9faff60dbfaff1a10fbff3217fbffea28fbff4a4ffbffa652fbff6c53fbffaa54fbff6656fbff0457fbffa657fbff1c58fbffc065fcff7c83fcff1e84fcfff685fcffb287fcff5088fcff0a89fcff7489fcff6cb6fcffceb8fcff72b9fcff4abbfcff06bdfcff0abdfcffacbdfcff22befcffb4c4fcff2ac9fcff84cbfcffeecffcffecd9fcff4ee4fcff16effcff82f0fcff565ffdffd476fdffd077fdffa479fdff5c7bfdfff67bfdffac7cfdff1a7dfdff507efdff248ffdff96e8ffffa8ebfffff4ffffff000000003270000004720000de730000da750000d0860000c29d000042a80000cec400004eae0100
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -580,14 +580,14 @@ MonoBehaviour:
     width: 1021
     height: 441
   m_SceneLighting: 1
-  lastFramingTime: 1154.3315936215488
+  lastFramingTime: 1548.64934750382
   m_2DMode: 0
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 29.768686, y: -25.86294, z: 1}
+    m_Target: {x: 0, y: 4.64, z: -9.93}
     speed: 2
-    m_Value: {x: 29.768686, y: -25.86294, z: 1}
+    m_Value: {x: 0, y: 4.64, z: -9.93}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -612,11 +612,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0, y: 0, z: 0, w: 1}
     speed: 2
-    m_Value: {x: -0, y: 0, z: 0, w: -0.99999994}
+    m_Value: {x: -0, y: 0, z: -0, w: -1}
   m_Size:
-    m_Target: 354.28055
+    m_Target: 554.8742
     speed: 2
-    m_Value: 354.28055
+    m_Value: 554.8742
   m_Ortho:
     m_Target: 0
     speed: 2

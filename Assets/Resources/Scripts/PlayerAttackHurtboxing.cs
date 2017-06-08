@@ -20,6 +20,8 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
     public int meterValue;
     public float stun;
 
+    public GameObject sound;
+
     void Start()
     {
         //GameObject player = GameObject.Find("Player");
@@ -41,6 +43,7 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
             if (other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
             {
+                //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
                 enemyScript.timeReset = Time.time;
                 enemyScript.health -= damage;
                 enemyScript.hitByCurrent = hbSet;

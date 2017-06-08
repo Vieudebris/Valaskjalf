@@ -18,6 +18,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     public int damage;
     public float stun;
 
+    public GameObject sound;
+
     void Start()
     {
         //GameObject player = GameObject.Find("Player");
@@ -34,19 +36,22 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && ForSolo.serverID == other.GetComponent<PlayerController>().netId)
         {
-            playerScript = other.GetComponent<PlayerController>();
             if (playerScript.hitByCurrent != hbSet)
             {
                 playerScript.affectedUI = true;
                 if (playerScript.isBlocking)
                 {
+                    playerScript.hitByCurrent = hbSet;
+                    playerScript.hitByLast = playerScript.hitByCurrent;
+                    GameObject.Find("Main Camera/audio/").GetComponent<AudioSource>().Play();
                     playerScript.currentBlockPressure -= 1;
                 }
                 else
                 {
-                    playerScript.currentHP -= damage;
+                    //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
+                    playerScript.TakeDamage(damage);
 
                     playerScript.stunAtTime = Time.time;
                     playerScript.stunFrames = stun;

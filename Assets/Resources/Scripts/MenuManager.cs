@@ -18,6 +18,7 @@ public class MenuManager : MonoBehaviour {
     public GameObject msg5;
     public GameObject msg6;
     public GameObject msg0;
+    public GameObject returnJoined;
 
     // Use this for initialization
     void Start ()
@@ -49,5 +50,7 @@ public class MenuManager : MonoBehaviour {
         msg6.SetActive(false);
         msg0 = GameObject.Find("msg0");
         msg0.SetActive(false);
+        returnJoined = GameObject.Find("ReturnJoined");
+        returnJoined.SetActive(false);
     }
 }

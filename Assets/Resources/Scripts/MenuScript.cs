@@ -59,6 +59,7 @@ public class MenuScript : MonoBehaviour
         {
             menuManager.display1.SetActive(false);
             menuManager.displayMult.SetActive(true);
+            solo = false;
         }
 
         if (isLocked)
@@ -134,6 +135,14 @@ public class MenuScript : MonoBehaviour
                 menuManager.msg2.SetActive(false);
                 menuManager.msg3.SetActive(false);
             }
+
+            if (menuManager.msg4.activeSelf && menuManager.msg6.activeSelf)
+            {
+                menuManager.msg4.SetActive(false);
+                menuManager.msg6.SetActive(false);
+                menuManager.displayJoin.SetActive(true);
+            }
+
             menuManager.msg0.SetActive(false);
             NetworkManager.singleton.StopMatchMaker();
 
@@ -183,18 +192,19 @@ public class MenuScript : MonoBehaviour
         /*Pause Menu */
         if (isRestartLevel)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
-            NetworkManager.singleton.StopHost();
+            NetworkManager.singleton.ServerChangeScene(SceneManager.GetActiveScene().name);
+
+            if (solo)
+                NetworkManager.singleton.StopHost();
         }
 
         if (isReturnToMenu)
         {
-            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-            NetworkManager.singleton.StopHost();
+            NetworkManager.singleton.ServerChangeScene("Menu");
             net.showGUI = false;
 
-            if (solo == true)
-                solo = false;
+            if (solo)
+                NetworkManager.singleton.StopHost();
         }
 
         if (isResume)
@@ -257,6 +267,7 @@ public class MenuScript : MonoBehaviour
             NetworkManager.singleton.StartClient(hostInfo);
             menuManager.displayJoin.SetActive(false);
             menuManager.msg6.SetActive(true);
+            menuManager.returnJoined.SetActive(true);
         }
         else
         {

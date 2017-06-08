@@ -116,6 +116,13 @@
     <Compile Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireBaseScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireCollisionForwardScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireConstantBaseScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireLightScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\FireProjectileScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\MeteorSwarmScript.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Script\SingleLineAttribute.cs" />
     <Compile Include="Assets\Resources\Scripts\AddArbitraryForce.cs" />
     <Compile Include="Assets\Resources\Scripts\AudioKill.cs" />
     <Compile Include="Assets\Resources\Scripts\CameraFollow.cs" />
@@ -215,6 +222,8 @@
     <None Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Resources\NatureStarterKit2\info.txt" />
+    <None Include="Assets\Resources\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
+    <None Include="Assets\Resources\PyroParticles\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Shader\VertexColored.shader" />
     <None Include="Assets\_Scenes\Menu\Viking_Readme.txt" />

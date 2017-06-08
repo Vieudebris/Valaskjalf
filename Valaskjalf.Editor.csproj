@@ -134,6 +134,7 @@
     <Compile Include="Assets\Resources\NatureStarterKit2\Editor\ImageEffects\SunShaftsEditor.cs" />
     <Compile Include="Assets\Resources\NatureStarterKit2\Editor\ImageEffects\TonemappingEditor.cs" />
     <Compile Include="Assets\Resources\NatureStarterKit2\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
+    <Compile Include="Assets\Resources\PyroParticles\Prefab\Editor\PyroParticlesEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Resources\Audio\explosions\info.txt" />
@@ -216,6 +217,8 @@
     <None Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLit.shader" />
     <None Include="Assets\Resources\NatureStarterKit2\Standard Assets\Effects\ToonShading\Shaders\ToonLitOutline.shader" />
     <None Include="Assets\Resources\NatureStarterKit2\info.txt" />
+    <None Include="Assets\Resources\PyroParticles\Prefab\Materials\AdditiveTintable.shader" />
+    <None Include="Assets\Resources\PyroParticles\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Readme.txt" />
     <None Include="Assets\Resources\StoneplantStudios.com\VikingWeapons\Shader\VertexColored.shader" />
     <None Include="Assets\_Scenes\Menu\Viking_Readme.txt" />

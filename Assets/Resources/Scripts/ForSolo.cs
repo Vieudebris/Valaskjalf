@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class ForSolo : MonoBehaviour {
 
     bool solo = MenuScript.solo;
+    public static NetworkInstanceId serverID;
     
 	void Start ()
     {

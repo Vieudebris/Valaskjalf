@@ -82,12 +82,12 @@ public class PlayerController : NetworkBehaviour
         tempFacingV3 = Vector3.right + Vector3.up;
         facingSide = 1f;
         attackBuffer = new List<AttackDataEx>();
+        currentHP = totalHP;
 
         animator = other.GetComponent<Animator>();
         _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
         animator.SetInteger(_AnimatorAttack, 0);
-
-        currentHP = totalHP;
+        
         currentMeter = 0;
         timePressure = Time.time;
 
@@ -97,10 +97,17 @@ public class PlayerController : NetworkBehaviour
         healthUI = GameObject.Find("UI/healthBar/health");
 
         meterUI.transform.localScale = Vector3.zero;
+
     }
 
     void Update()
     {
+        Debug.LogAssertion(netId);
+        Debug.LogAssertion(ForSolo.serverID);
+        Debug.LogAssertion(ForSolo.serverID == new NetworkInstanceId(0));
+        if (isLocalPlayer && ForSolo.serverID == new NetworkInstanceId(0))
+            ForSolo.serverID = netId;
+
         /* Manages local player input */ 
         if (!isLocalPlayer)
         {
@@ -455,6 +462,7 @@ public class PlayerController : NetworkBehaviour
         public bool endsAerial;
         public bool knockdown;
         public bool isEnder;
+
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
@@ -468,8 +476,7 @@ public class PlayerController : NetworkBehaviour
         yield return new WaitForSeconds(data.startupFrames / 60);
         animator.SetInteger(_AnimatorAttack, data.ID);
 
-        Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
-
+        GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform);
 
         for (int i = 0; i < data.hbData.Length; i++)
         {
@@ -519,5 +526,18 @@ public class PlayerController : NetworkBehaviour
         att.GetComponent<PlayerAttackHurtboxing>().hbSet = ID;
         att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
+    }
+
+    public void TakeDamage (int amount)
+    {
+        if (!isServer)
+            return;
+
+        currentHP -= amount;
+        if (currentHP <= 0)
+        {
+            currentHP = 0;
+            Debug.Log("Dead!");
+        }
     }
 }
