@@ -522,6 +522,8 @@ public class PlayerController : NetworkBehaviour
         public bool knockdown;
         public bool isEnder;
 
+        public int num;
+
         public void SetID (short ID)
         {
             this.ID = ID;
@@ -549,8 +551,8 @@ public class PlayerController : NetworkBehaviour
         yield return new WaitWhile(() => attackBuffer.Count != 0);
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         
+        animator.SetInteger(_AnimatorAttack, data.num);
         yield return new WaitForSeconds(data.startupFrames / 60);
-        animator.SetInteger(_AnimatorAttack, data.GetID());
 
         GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform);
 
