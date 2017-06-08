@@ -447,7 +447,7 @@ public class PlayerController : NetworkBehaviour
         GameObject[] otherPlayer;
         otherPlayer = GameObject.FindGameObjectsWithTag("Player");
         foreach (GameObject other in otherPlayer)
-            Physics.IgnoreCollision(other.GetComponentInChildren<Collider>(), GetComponentInChildren<Collider>());
+            Physics.IgnoreCollision(other.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void Jump()
