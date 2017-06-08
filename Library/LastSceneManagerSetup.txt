@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/_Scenes/Menu/Menu.unity
+- path: Assets/_Scenes/Niflheim/Niflheim.unity
   isLoaded: 1
   isActive: 1
