@@ -13,7 +13,7 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     private bool timeCheck;
     private float timeWait;
 
-    public int hbSet;
+    public short hbSet;
     public bool knockdown;
     public int damage;
     public float stun;
@@ -40,7 +40,6 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
         {
             if (playerScript.hitByCurrent != hbSet)
             {
-                playerScript.affectedUI = true;
                 if (playerScript.isBlocking)
                 {
                     playerScript.hitByCurrent = hbSet;
@@ -50,7 +49,7 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 }
                 else
                 {
-                    Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
+                    //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
                     playerScript.currentHP -= damage;
 
                     playerScript.stunAtTime = Time.time;
@@ -69,7 +68,11 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                         other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                         other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
                     }
-                }    
+
+                    
+                }
+
+                playerScript.updateUI = true;
             }
         }
     }

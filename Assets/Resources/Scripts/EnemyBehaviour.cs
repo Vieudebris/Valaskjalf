@@ -24,17 +24,13 @@ public class EnemyBehaviour : NetworkBehaviour
 
     private Vector3 tempFacingV3;
 
-    // Attacks
-    public PlayerController.AttackDataEx attack1, attack2, attack3;
-    public List<PlayerController.AttackDataEx> attackBuffer;
-
     // Enemy state
     private bool isGrounded = true;
     private bool isAttacking = false;
     private bool jumpedMidair = false;
     public int health = 2000;
 
-    private bool isStunned = false;
+    public bool isStunned = false;
     public float stunFrames;
     public float stunAtTime;
 
@@ -43,6 +39,12 @@ public class EnemyBehaviour : NetworkBehaviour
     public int hitByCurrent = 0;
     public int hitByLast = 0;
     public float timeReset;
+
+    public short counterID;
+
+    // Attacks
+    public PlayerController.AttackDataEx attack1, attack2, attack3;
+    public List<PlayerController.AttackDataEx> attackBuffer;
 
     void Awake()
     {
@@ -77,6 +79,7 @@ public class EnemyBehaviour : NetworkBehaviour
         } // Check for hitbox multiplicity of hits
 
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
+
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
         else
@@ -192,6 +195,13 @@ public class EnemyBehaviour : NetworkBehaviour
 
     IEnumerator AttackPattern(PlayerController.AttackDataEx data)
     {
+        data.SetID(counterID);
+        if (counterID == short.MaxValue)
+        {
+            counterID = 0;
+        }
+        counterID++;
+
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         yield return new WaitForSeconds(data.startupFrames / 60);
 
@@ -210,7 +220,7 @@ public class EnemyBehaviour : NetworkBehaviour
                 data.damage,
                 data.stunFrames,
                 data.knockdown,
-                data.ID);
+                counterID);
 
             yield return new WaitForSeconds(data.hbData[i].activeFrames / 60);
         }
@@ -224,13 +234,15 @@ public class EnemyBehaviour : NetworkBehaviour
     } // Still doesn't manage network, check CmdHurt arguments
 
     [Command]
-    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, float stunFrames, bool knockdown, int ID)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, float stunframes, bool knockdown, short ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
-        att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
+        
         att.GetComponent<EnemyAttackHurtboxing>().damage = damage;
+        att.GetComponent<EnemyAttackHurtboxing>().stun = stunframes;
         att.GetComponent<EnemyAttackHurtboxing>().hbSet = ID;
-        att.GetComponent<EnemyAttackHurtboxing>().stun = stunFrames;
+        att.GetComponent<EnemyAttackHurtboxing>().knockdown = knockdown;
+        
         att.transform.parent = GameObject.FindWithTag("Enemy").transform;
         NetworkServer.Spawn(att);
     }

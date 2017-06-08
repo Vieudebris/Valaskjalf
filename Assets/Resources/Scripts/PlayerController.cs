@@ -22,6 +22,8 @@ public class PlayerController : NetworkBehaviour
     public float facingSide { get; private set; }
     public float facingSideAir { get; private set; }
 
+    public GameController gameController;
+
     // Player state
     private bool isGrounded = true;
     private bool jumpedMidair = false;
@@ -53,13 +55,15 @@ public class PlayerController : NetworkBehaviour
     public bool canCancel = false;
     public int currentMoveInCombo = 0;
 
+    public short counterID;
+
     //Animator
     protected Animator animator;
     private int _AnimatorAttack;
     public GameObject other;
 
     // UI
-    public bool affectedUI;
+    public bool updateUI;
     private GameObject blockUI;
     private GameObject healthUI;
     private GameObject meterUI;
@@ -97,6 +101,9 @@ public class PlayerController : NetworkBehaviour
         healthUI = GameObject.Find("UI/healthBar/health");
 
         meterUI.transform.localScale = Vector3.zero;
+
+        // Game Controller setup
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
     }
 
     void Update()
@@ -107,12 +114,9 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
-        if (affectedUI)
+        if (gameController.isCutscene)
         {
-            blockUI.transform.localScale = new Vector3(Mathf.Max((currentBlockPressure / maxBlockPressure), 0), 1, 1);
-            healthUI.transform.localScale = new Vector3(Mathf.Max((currentHP / totalHP), 0), 1, 1);
-            meterUI.transform.localScale = new Vector3(Mathf.Min((currentMeter / totalMeter), 1), 1, 1);
-            affectedUI = false;
+            return;
         }
 
         if (currentBlockPressure < 20)
@@ -121,7 +125,16 @@ public class PlayerController : NetworkBehaviour
             {
                 timePressure = Time.time;
                 currentBlockPressure = Mathf.Min(currentBlockPressure + 1, maxBlockPressure);
+                updateUI = true;
             }
+        }
+
+        if (updateUI)
+        {
+            blockUI.transform.localScale = new Vector3(Mathf.Max((currentBlockPressure / maxBlockPressure), 0), 1, 1);
+            healthUI.transform.localScale = new Vector3(Mathf.Max((currentHP / totalHP), 0), 1, 1);
+            meterUI.transform.localScale = new Vector3(Mathf.Min((currentMeter / totalMeter), 1), 1, 1);
+            updateUI = false;
         }
 
         if (hitByCurrent != 0 && hitByLast == hitByCurrent)
@@ -309,7 +322,6 @@ public class PlayerController : NetworkBehaviour
                 switch (currentMoveInCombo)
                 {
                     case 11:
-                        Debug.Log(2);
                         currentMoveInCombo = 12;
                         Attack(groundLight2);
                         break;
@@ -438,7 +450,7 @@ public class PlayerController : NetworkBehaviour
     [System.Serializable]
     public class AttackDataEx
     {
-        public int ID;
+        private short ID;
 
         public AttackData[] hbData;
         public float startupFrames;
@@ -456,18 +468,35 @@ public class PlayerController : NetworkBehaviour
         public bool knockdown;
         public bool isEnder;
 
+        public void SetID (short ID)
+        {
+            this.ID = ID;
+        }
+
+        public short GetID()
+        {
+            return ID;
+        }
+
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
         isAttacking = true;
         canCancel = true;
+
+        data.SetID(counterID);
+        if (counterID == short.MaxValue)
+        {
+            counterID = 0;
+        }
+        counterID++;
+
+
         yield return new WaitWhile(() => attackBuffer.Count != 0);
-        Debug.Log(data.ID);
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
-        Debug.Log("Attacking with " + data.ID);
         
         yield return new WaitForSeconds(data.startupFrames / 60);
-        animator.SetInteger(_AnimatorAttack, data.ID);
+        animator.SetInteger(_AnimatorAttack, data.GetID());
 
         GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform);
 
@@ -488,9 +517,10 @@ public class PlayerController : NetworkBehaviour
                 gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
                 gameObject.transform.rotation,
                 data.damage,
+                data.stunFrames,
                 data.meterValue,
                 data.knockdown,
-                data.ID);
+                data.GetID());
             
             if (data.endsAerial && jumpedMidair == false)
                 jumpedMidair = true;
@@ -511,12 +541,17 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, int meterValue, bool knockdown, int ID)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, float stunframes, int meterValue, bool knockdown, short ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
-        att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
+        
         att.GetComponent<PlayerAttackHurtboxing>().damage = damage;
-        att.GetComponent<PlayerAttackHurtboxing>().hbSet = ID;
+        att.GetComponent<PlayerAttackHurtboxing>().stun = stunframes;
+        att.GetComponent<PlayerAttackHurtboxing>().meterValue = meterValue;
+        att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
+
+        att.GetComponent<PlayerAttackHurtboxing>().Sethb(ID);
+        
         att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
     }
