@@ -107,9 +107,6 @@ public class PlayerController : NetworkBehaviour
 
         meterUI.transform.localScale = Vector3.zero;
 
-        // Game Controller setup
-        gameController = GameObject.Find("GameController").GetComponent<GameController>();
-
         // Audio setup
         audioSource = GameObject.Find("Main Camera/audio").GetComponents<AudioSource>();
     }
@@ -125,7 +122,7 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
-        if (gameController.isCutscene)
+        if (GameController.isCutscene)
         {
             return;
         }

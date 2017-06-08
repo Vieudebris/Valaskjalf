@@ -49,7 +49,6 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
             if (other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
             {
-                soundOnHit[randomSound.Next(0, 4)].Play();
                 soundOnHit[randomSound.Next(4, 9)].Play();
 
                 enemyScript.timeReset = Time.time;

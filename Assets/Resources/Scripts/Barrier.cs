@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraLocker : MonoBehaviour {
+public class Barrier : MonoBehaviour {
 
     public CameraFollow cameraScript;
     public bool turnOff;
@@ -18,20 +18,18 @@ public class CameraLocker : MonoBehaviour {
         barriers[0] = GameObject.Find("left");
         barriers[1] = GameObject.Find("right");
 
-        for (int i = 0; i < GetComponentsInChildren<MeshRenderer>().Length; i++)
-        {
-            //GetComponentsInChildren<MeshRenderer>()[i].enabled = false;
-        }
-
         barriers[0].SetActive(false);
         barriers[1].SetActive(false);
 	}
 
     private void Update()
     {
-        if (turnOff && barriers[1].activeSelf)
+        if (turnOff)
         {
+            cameraScript.maxXAndY = new Vector2(10000, 10);
+            cameraScript.minXAndY = new Vector2(-10000, 0);
             Destroy(barriers[1]);
+            turnOff = false;
         }
     }
 
@@ -39,13 +37,19 @@ public class CameraLocker : MonoBehaviour {
     {
         if (other.tag == "Player" && !hasBeenActivated)
         {
+            StartCoroutine(SmoothCamLock());
+
             barriers[0].SetActive(true);
             barriers[1].SetActive(true);
 
-            cameraScript.maxXAndY = new Vector2(gameObject.transform.position.x, 10);
-            cameraScript.minXAndY = new Vector2(gameObject.transform.position.x, 0);
-
             hasBeenActivated = true;
         }
+    }
+
+    IEnumerator SmoothCamLock()
+    {
+        yield return new WaitForSeconds(2);
+        cameraScript.maxXAndY = new Vector2(gameObject.transform.position.x, 10);
+        cameraScript.minXAndY = new Vector2(gameObject.transform.position.x, 0);
     }
 }
