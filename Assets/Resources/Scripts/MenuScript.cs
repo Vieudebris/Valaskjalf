@@ -33,7 +33,6 @@ public class MenuScript : MonoBehaviour
         butt = GetComponent<Button>();
         butt.onClick.AddListener(LoadScene);
         net = GameObject.Find("NetworkManager").GetComponent<NetworkManagerHUD>();
-
         if (SceneManager.GetActiveScene().name == "Menu")
             menuManager = GameObject.Find("MenuManager").GetComponent<MenuManager>();
 
@@ -95,6 +94,13 @@ public class MenuScript : MonoBehaviour
             menuManager.msg0.SetActive(false);
         }
 
+        if (isOptions)
+        {
+            menuManager.logo.SetActive(false);
+            menuManager.display1.SetActive(false);
+            menuManager.displayOptions.SetActive(true);
+        }
+
         if (isReturn)
         {
             if (menuManager.display2a.activeSelf)
@@ -141,6 +147,13 @@ public class MenuScript : MonoBehaviour
                 menuManager.msg4.SetActive(false);
                 menuManager.msg6.SetActive(false);
                 menuManager.displayJoin.SetActive(true);
+            }
+
+            if (menuManager.displayOptions.activeSelf)
+            {
+                menuManager.display1.SetActive(true);
+                menuManager.displayOptions.SetActive(false);
+                menuManager.logo.SetActive(true);
             }
 
             menuManager.msg0.SetActive(false);
