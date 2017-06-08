@@ -63,6 +63,11 @@ public class PlayerController : NetworkBehaviour
     protected Animator animator;
     private int _AnimatorAttack;
     public GameObject other;
+    private int _speedHash;
+    private int _isGrounded;
+    private int _jump2;
+    private int _isstunned;
+    private int _isblock;
 
     // UI
     public bool updateUI;
@@ -92,13 +97,23 @@ public class PlayerController : NetworkBehaviour
         facingSide = 1f;
         attackBuffer = new List<AttackDataEx>();
 
-        animator = other.GetComponent<Animator>();
-        _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
-        animator.SetInteger(_AnimatorAttack, 0);
-
         currentHP = totalHP;
         currentMeter = 0;
         timePressure = Time.time;
+
+        animator = other.GetComponent<Animator>();
+        _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
+        _speedHash = Animator.StringToHash("MovementSpeed");
+        _jump2 = Animator.StringToHash("Jump2");
+        _isGrounded = Animator.StringToHash("isGrounded");
+        _isstunned = Animator.StringToHash("isStun");
+        _isblock = Animator.StringToHash("isBlock");
+        animator.SetFloat(_speedHash, 0);
+        animator.SetInteger(_AnimatorAttack, 0);
+        animator.SetBool(_isGrounded, false);
+        animator.ResetTrigger(_jump2);
+        animator.SetBool(_isstunned, false);
+        animator.SetBool(_isblock, false);
 
         // UI setup
         blockUI = GameObject.Find("UI/blockBar/block");
@@ -166,6 +181,7 @@ public class PlayerController : NetworkBehaviour
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
 
         isGrounded = rb.position.y < 1.1f;
+        animator.SetBool(_isGrounded, isGrounded);
 
         isStunned = stunFrames != 0;
         if (isStunned && !stunImmunity)
@@ -176,6 +192,7 @@ public class PlayerController : NetworkBehaviour
                 stunFrames = 0;
             }
         }
+        animator.SetBool(_isstunned, isStunned);
 
         if (canTakeAction && !isBlocking) // Manages side inputs (TO BE REWORKED)
             SideInputCheck();
@@ -202,10 +219,12 @@ public class PlayerController : NetworkBehaviour
             {
                 Debug.Log("block");
                 block = true;
+                animator.SetBool(_isblock, true);
             }
             else
             {
                 block = false;
+                animator.SetBool(_isblock, false);
             }// Guard
 
             if (Input.GetButtonDown("super"))
@@ -286,10 +305,12 @@ public class PlayerController : NetworkBehaviour
                 if (neutral) // Checked via SideInputCheck()
                 {
                     rb.velocity = Vector3.zero;
+                    animator.SetFloat(_speedHash, 0);
                 }
                 else if (left || right)
                 {
                     rb.velocity = new Vector3(1f * facingSide, 0, 0) * speed;
+                    animator.SetFloat(_speedHash, rb.velocity.magnitude);
                 }
 
                 if (lightAttack)
@@ -398,7 +419,6 @@ public class PlayerController : NetworkBehaviour
         left = Input.GetAxis("Horizontal") < -0.20f;
         right = Input.GetAxis("Horizontal") > 0.20f;
         neutral = Input.GetAxis("Horizontal") >= -0.20f && Input.GetAxis("Horizontal") <= 0.20f;
-
         if (left)
         {
             if (isGrounded)
