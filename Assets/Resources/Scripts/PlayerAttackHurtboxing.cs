@@ -21,7 +21,10 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
     public int meterValue;
     public float stun;
 
-    public GameObject sound;
+    public AudioSource[] soundOnHit;
+    private System.Random randomSound;
+
+    private
 
     void Start()
     {
@@ -29,6 +32,8 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
         GameObject player = GameObject.Find("Player_Network(Clone)");  //For the network
         playerScript = player.GetComponent<PlayerController>();
         timeWait = Time.time;
+        soundOnHit = GameObject.Find("Main Camera/audio/onhit").GetComponents<AudioSource>();
+        randomSound = new System.Random();
     }
 
     void Update()
@@ -44,7 +49,9 @@ public class PlayerAttackHurtboxing : NetworkBehaviour
 
             if (other.GetComponent<EnemyBehaviour>().hitByCurrent != hbSet) // If the hit object is an enemy : force and damage calculation goes here
             {
-                //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
+                soundOnHit[randomSound.Next(0, 4)].Play();
+                soundOnHit[randomSound.Next(4, 9)].Play();
+
                 enemyScript.timeReset = Time.time;
                 enemyScript.health -= damage;
                 enemyScript.hitByCurrent = hbSet;

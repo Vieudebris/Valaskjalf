@@ -12,7 +12,7 @@ public class PlayerController : NetworkBehaviour
     private float doubleJumpSpeed = 5;
 
     private bool neutral, left, right, up, down;
-    public bool lightAttack, heavyAttack, specialAttack, block;
+    public bool lightAttack, heavyAttack, specialAttack, block, super;
     private bool jump;
 
     // Primary game physics interactions
@@ -35,6 +35,8 @@ public class PlayerController : NetworkBehaviour
     public bool canTakeAction; // = !(isAttacking || isStunned || attackBuffer.Count < 1)
     public bool isAttacking = false;
     public bool isStunned = false;
+    public bool stunImmunity;
+
     public float stunFrames;
     public float stunTime;
     public float stunAtTime;
@@ -67,6 +69,9 @@ public class PlayerController : NetworkBehaviour
     private GameObject blockUI;
     private GameObject healthUI;
     private GameObject meterUI;
+
+    //Sound management
+    private AudioSource[] audioSource;
 
     // Attacks
     public AttackDataEx groundLight1, groundLight2, groundLight3;
@@ -104,6 +109,9 @@ public class PlayerController : NetworkBehaviour
 
         // Game Controller setup
         gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
+        // Audio setup
+        audioSource = GameObject.Find("Main Camera/audio").GetComponents<AudioSource>();
     }
 
     void Update()
@@ -121,7 +129,11 @@ public class PlayerController : NetworkBehaviour
 
         if (currentBlockPressure < 20)
         {
-            if (Time.time >= timePressure + 1 / 2f)
+            if (currentBlockPressure <= 0)
+            {
+                stunFrames = 350f;
+            }
+            else if (Time.time >= timePressure + 1 / 2f)
             {
                 timePressure = Time.time;
                 currentBlockPressure = Mathf.Min(currentBlockPressure + 1, maxBlockPressure);
@@ -153,7 +165,7 @@ public class PlayerController : NetworkBehaviour
         isGrounded = rb.position.y < 1.1f;
 
         isStunned = stunFrames != 0;
-        if (isStunned)
+        if (isStunned && !stunImmunity)
         {
             if (Time.time >= stunFrames / 60 + stunAtTime)
             {
@@ -193,6 +205,12 @@ public class PlayerController : NetworkBehaviour
                 block = false;
             }// Guard
 
+            if (Input.GetButtonDown("super"))
+            {
+                Debug.Log("super");
+                super = true;
+            }
+
             if (!isAttacking) // Horizontal movement and jumps
             {
                 jumpedMidair = false;
@@ -200,8 +218,6 @@ public class PlayerController : NetworkBehaviour
                 {
                     jump = true;
                 } // Jump
-
-
             } // Normal horizontal movement
         } // Grounded decision tree
         else
@@ -228,7 +244,22 @@ public class PlayerController : NetworkBehaviour
         } // Midair decision tree
     }
     void FixedUpdate()
-    {
+    {        
+        if (super)
+        {
+            if (isStunned)
+            {
+                audioSource[1].Play();
+                if (currentMeter > 50)
+                {
+                    currentMeter -= 50;
+                    StartCoroutine(StunImmunity(480));
+                }
+                updateUI = true;
+            }
+            super = false;
+        }
+
         if (canTakeAction)
         {
             if (jump && !isBlocking)
@@ -554,5 +585,11 @@ public class PlayerController : NetworkBehaviour
         
         att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
+    }
+
+    IEnumerator StunImmunity(float f)
+    {
+        yield return new WaitForSeconds(f / 60);
+        stunImmunity = false;
     }
 }

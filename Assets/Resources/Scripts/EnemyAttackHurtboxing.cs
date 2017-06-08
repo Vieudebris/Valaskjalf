@@ -18,7 +18,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     public int damage;
     public float stun;
 
-    public GameObject sound;
+    public AudioSource[] soundOnHit;
+    private System.Random randomSound;
 
     void Start()
     {
@@ -27,6 +28,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
         playerScript = player.GetComponent<PlayerController>();
         timeWait = Time.time;
         //Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Collider>(), GetComponent<Collider>());
+        soundOnHit = GameObject.Find("Main Camera/audio/onhit").GetComponents<AudioSource>();
+        randomSound = new System.Random();
     }
 
     void Update()
@@ -49,6 +52,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 }
                 else
                 {
+                    soundOnHit[randomSound.Next(0, 4)].Play();
+                    soundOnHit[randomSound.Next(4, 9)].Play();
                     //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
                     playerScript.currentHP -= damage;
 
