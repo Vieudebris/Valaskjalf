@@ -13,12 +13,13 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
     private bool timeCheck;
     private float timeWait;
 
-    public int hbSet;
+    public short hbSet;
     public bool knockdown;
     public int damage;
     public float stun;
 
-    public GameObject sound;
+    public AudioSource[] soundOnHit;
+    private System.Random randomSound;
 
     void Start()
     {
@@ -27,6 +28,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
         playerScript = player.GetComponent<PlayerController>();
         timeWait = Time.time;
         //Physics.IgnoreCollision(GameObject.FindGameObjectWithTag("Enemy").GetComponent<Collider>(), GetComponent<Collider>());
+        soundOnHit = GameObject.Find("Main Camera/audio/onhit").GetComponents<AudioSource>();
+        randomSound = new System.Random();
     }
 
     void Update()
@@ -40,7 +43,6 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
         {
             if (playerScript.hitByCurrent != hbSet)
             {
-                playerScript.affectedUI = true;
                 if (playerScript.isBlocking)
                 {
                     playerScript.hitByCurrent = hbSet;
@@ -50,6 +52,8 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 }
                 else
                 {
+                    soundOnHit[randomSound.Next(0, 4)].Play();
+                    soundOnHit[randomSound.Next(4, 9)].Play();
                     //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
                     playerScript.TakeDamage(damage);
 
@@ -69,7 +73,11 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                         other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
                         other.gameObject.GetComponent<Rigidbody>().AddForce(appliedForce * modForce * playerScript.facingSide, ForceMode.Impulse);
                     }
-                }    
+
+                    
+                }
+
+                playerScript.updateUI = true;
             }
         }
     }

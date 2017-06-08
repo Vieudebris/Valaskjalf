@@ -12,7 +12,7 @@ public class PlayerController : NetworkBehaviour
     private float doubleJumpSpeed = 5;
 
     private bool neutral, left, right, up, down;
-    public bool lightAttack, heavyAttack, specialAttack, block;
+    public bool lightAttack, heavyAttack, specialAttack, block, super;
     private bool jump;
 
     // Primary game physics interactions
@@ -21,6 +21,8 @@ public class PlayerController : NetworkBehaviour
 
     public float facingSide { get; private set; }
     public float facingSideAir { get; private set; }
+
+    public GameController gameController;
 
     // Player state
     private bool isGrounded = true;
@@ -33,6 +35,8 @@ public class PlayerController : NetworkBehaviour
     public bool canTakeAction; // = !(isAttacking || isStunned || attackBuffer.Count < 1)
     public bool isAttacking = false;
     public bool isStunned = false;
+    public bool stunImmunity;
+
     public float stunFrames;
     public float stunTime;
     public float stunAtTime;
@@ -53,16 +57,21 @@ public class PlayerController : NetworkBehaviour
     public bool canCancel = false;
     public int currentMoveInCombo = 0;
 
+    public short counterID;
+
     //Animator
     protected Animator animator;
     private int _AnimatorAttack;
     public GameObject other;
 
     // UI
-    public bool affectedUI;
+    public bool updateUI;
     private GameObject blockUI;
     private GameObject healthUI;
     private GameObject meterUI;
+
+    //Sound management
+    private AudioSource[] audioSource;
 
     // Attacks
     public AttackDataEx groundLight1, groundLight2, groundLight3;
@@ -82,12 +91,12 @@ public class PlayerController : NetworkBehaviour
         tempFacingV3 = Vector3.right + Vector3.up;
         facingSide = 1f;
         attackBuffer = new List<AttackDataEx>();
-        currentHP = totalHP;
 
         animator = other.GetComponent<Animator>();
         _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
         animator.SetInteger(_AnimatorAttack, 0);
-        
+
+        currentHP = totalHP;
         currentMeter = 0;
         timePressure = Time.time;
 
@@ -98,37 +107,49 @@ public class PlayerController : NetworkBehaviour
 
         meterUI.transform.localScale = Vector3.zero;
 
+        // Game Controller setup
+        gameController = GameObject.Find("GameController").GetComponent<GameController>();
+
+        // Audio setup
+        audioSource = GameObject.Find("Main Camera/audio").GetComponents<AudioSource>();
     }
 
     void Update()
     {
-        Debug.LogAssertion(netId);
-        Debug.LogAssertion(ForSolo.serverID);
-        Debug.LogAssertion(ForSolo.serverID == new NetworkInstanceId(0));
         if (isLocalPlayer && ForSolo.serverID == new NetworkInstanceId(0))
             ForSolo.serverID = netId;
 
-        /* Manages local player input */ 
+        /* Manages local player input */
         if (!isLocalPlayer)
         {
             return;
         }
 
-        if (affectedUI)
+        if (gameController.isCutscene)
         {
-            blockUI.transform.localScale = new Vector3(Mathf.Max((currentBlockPressure / maxBlockPressure), 0), 1, 1);
-            healthUI.transform.localScale = new Vector3(Mathf.Max((currentHP / totalHP), 0), 1, 1);
-            meterUI.transform.localScale = new Vector3(Mathf.Min((currentMeter / totalMeter), 1), 1, 1);
-            affectedUI = false;
+            return;
         }
 
         if (currentBlockPressure < 20)
         {
-            if (Time.time >= timePressure + 1 / 2f)
+            if (currentBlockPressure <= 0)
+            {
+                stunFrames = 350f;
+            }
+            else if (Time.time >= timePressure + 1 / 2f)
             {
                 timePressure = Time.time;
                 currentBlockPressure = Mathf.Min(currentBlockPressure + 1, maxBlockPressure);
+                updateUI = true;
             }
+        }
+
+        if (updateUI)
+        {
+            blockUI.transform.localScale = new Vector3(Mathf.Max((currentBlockPressure / maxBlockPressure), 0), 1, 1);
+            healthUI.transform.localScale = new Vector3(Mathf.Max((currentHP / totalHP), 0), 1, 1);
+            meterUI.transform.localScale = new Vector3(Mathf.Min((currentMeter / totalMeter), 1), 1, 1);
+            updateUI = false;
         }
 
         if (hitByCurrent != 0 && hitByLast == hitByCurrent)
@@ -147,7 +168,7 @@ public class PlayerController : NetworkBehaviour
         isGrounded = rb.position.y < 1.1f;
 
         isStunned = stunFrames != 0;
-        if (isStunned)
+        if (isStunned && !stunImmunity)
         {
             if (Time.time >= stunFrames / 60 + stunAtTime)
             {
@@ -187,6 +208,12 @@ public class PlayerController : NetworkBehaviour
                 block = false;
             }// Guard
 
+            if (Input.GetButtonDown("super"))
+            {
+                Debug.Log("super");
+                super = true;
+            }
+
             if (!isAttacking) // Horizontal movement and jumps
             {
                 jumpedMidair = false;
@@ -194,8 +221,6 @@ public class PlayerController : NetworkBehaviour
                 {
                     jump = true;
                 } // Jump
-
-
             } // Normal horizontal movement
         } // Grounded decision tree
         else
@@ -222,7 +247,22 @@ public class PlayerController : NetworkBehaviour
         } // Midair decision tree
     }
     void FixedUpdate()
-    {
+    {        
+        if (super)
+        {
+            if (isStunned)
+            {
+                audioSource[1].Play();
+                if (currentMeter > 50)
+                {
+                    currentMeter -= 50;
+                    StartCoroutine(StunImmunity(480));
+                }
+                updateUI = true;
+            }
+            super = false;
+        }
+
         if (canTakeAction)
         {
             if (jump && !isBlocking)
@@ -316,7 +356,6 @@ public class PlayerController : NetworkBehaviour
                 switch (currentMoveInCombo)
                 {
                     case 11:
-                        Debug.Log(2);
                         currentMoveInCombo = 12;
                         Attack(groundLight2);
                         break;
@@ -445,7 +484,7 @@ public class PlayerController : NetworkBehaviour
     [System.Serializable]
     public class AttackDataEx
     {
-        public int ID;
+        private short ID;
 
         public AttackData[] hbData;
         public float startupFrames;
@@ -463,18 +502,35 @@ public class PlayerController : NetworkBehaviour
         public bool knockdown;
         public bool isEnder;
 
+        public void SetID (short ID)
+        {
+            this.ID = ID;
+        }
+
+        public short GetID()
+        {
+            return ID;
+        }
+
     }
     IEnumerator AttackPattern(AttackDataEx data)
     {
         isAttacking = true;
         canCancel = true;
+
+        data.SetID(counterID);
+        if (counterID == short.MaxValue)
+        {
+            counterID = 0;
+        }
+        counterID++;
+
+
         yield return new WaitWhile(() => attackBuffer.Count != 0);
-        Debug.Log(data.ID);
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
-        Debug.Log("Attacking with " + data.ID);
         
         yield return new WaitForSeconds(data.startupFrames / 60);
-        animator.SetInteger(_AnimatorAttack, data.ID);
+        animator.SetInteger(_AnimatorAttack, data.GetID());
 
         GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform);
 
@@ -495,9 +551,10 @@ public class PlayerController : NetworkBehaviour
                 gameObject.transform.position + Vector3.Scale(data.hbData[i].hurtBox.transform.position, tempFacingV3),
                 gameObject.transform.rotation,
                 data.damage,
+                data.stunFrames,
                 data.meterValue,
                 data.knockdown,
-                data.ID);
+                data.GetID());
             
             if (data.endsAerial && jumpedMidair == false)
                 jumpedMidair = true;
@@ -518,17 +575,28 @@ public class PlayerController : NetworkBehaviour
     }
 
     [Command]
-    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, int meterValue, bool knockdown, int ID)
+    void CmdHurt(string hurt, Vector3 pos, Quaternion rot, int damage, float stunframes, int meterValue, bool knockdown, short ID)
     {
         var att = (GameObject)Instantiate(Resources.Load(hurt, typeof(GameObject)), pos, rot);
-        att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
+        
         att.GetComponent<PlayerAttackHurtboxing>().damage = damage;
-        att.GetComponent<PlayerAttackHurtboxing>().hbSet = ID;
+        att.GetComponent<PlayerAttackHurtboxing>().stun = stunframes;
+        att.GetComponent<PlayerAttackHurtboxing>().meterValue = meterValue;
+        att.GetComponent<PlayerAttackHurtboxing>().knockdown = knockdown;
+
+        att.GetComponent<PlayerAttackHurtboxing>().Sethb(ID);
+        
         att.transform.parent = GameObject.FindWithTag("Player").transform;
         NetworkServer.Spawn(att);
     }
 
-    public void TakeDamage (int amount)
+    IEnumerator StunImmunity(float f)
+    {
+        yield return new WaitForSeconds(f / 60);
+        stunImmunity = false;
+    }
+
+    public void TakeDamage(int amount)
     {
         if (!isServer)
             return;

@@ -130,6 +130,7 @@
     <Compile Include="Assets\Resources\Scripts\EnemyBehaviour.cs" />
     <Compile Include="Assets\Resources\Scripts\EnemySpawner.cs" />
     <Compile Include="Assets\Resources\Scripts\ForSolo.cs" />
+    <Compile Include="Assets\Resources\Scripts\GameController.cs" />
     <Compile Include="Assets\Resources\Scripts\MenuManager.cs" />
     <Compile Include="Assets\Resources\Scripts\MenuScript.cs" />
     <Compile Include="Assets\Resources\Scripts\PauseMenu.cs" />
