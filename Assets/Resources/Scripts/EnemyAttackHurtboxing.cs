@@ -52,7 +52,6 @@ public class EnemyAttackHurtboxing : NetworkBehaviour
                 }
                 else
                 {
-                    soundOnHit[randomSound.Next(0, 4)].Play();
                     soundOnHit[randomSound.Next(4, 9)].Play();
                     //Instantiate(sound, GameObject.Find("Main Camera/audio").transform);
                     playerScript.TakeDamage(damage);

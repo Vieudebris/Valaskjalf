@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
-    public bool isCutscene;
+    public static bool isCutscene;
 
 	// Use this for initialization
 	void Start () {

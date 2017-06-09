@@ -140,7 +140,7 @@ public class PlayerController : NetworkBehaviour
             return;
         }
 
-        if (gameController.isCutscene)
+        if (GameController.isCutscene)
         {
             return;
         }
@@ -276,6 +276,7 @@ public class PlayerController : NetworkBehaviour
                 {
                     currentMeter -= 50;
                     StartCoroutine(StunImmunity(480));
+                    currentHP = Mathf.Min(totalHP, currentHP + 2000);
                 }
                 updateUI = true;
             }
