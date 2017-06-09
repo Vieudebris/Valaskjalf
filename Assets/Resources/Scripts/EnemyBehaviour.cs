@@ -42,6 +42,16 @@ public class EnemyBehaviour : NetworkBehaviour
 
     public short counterID;
 
+    //Animator
+    protected Animator animator;
+    private int _AnimatorAttack;
+    public GameObject other;
+    private int _speedHash;
+    private int _isGrounded;
+    private int _jump2;
+    private int _isstunned;
+    private int _isblock;
+
     // Attacks
     public PlayerController.AttackDataEx attack1, attack2, attack3;
     public List<PlayerController.AttackDataEx> attackBuffer;
@@ -54,6 +64,20 @@ public class EnemyBehaviour : NetworkBehaviour
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         nav.autoBraking = false;
         attackBuffer = new List<PlayerController.AttackDataEx>();
+
+        animator = other.GetComponent<Animator>();
+        _AnimatorAttack = Animator.StringToHash("AnimatorAttack");
+        _speedHash = Animator.StringToHash("MovementSpeed");
+        _jump2 = Animator.StringToHash("Jump2");
+        _isGrounded = Animator.StringToHash("isGrounded");
+        _isstunned = Animator.StringToHash("isStun");
+        _isblock = Animator.StringToHash("isBlock");
+        animator.SetFloat(_speedHash, 0);
+        animator.SetInteger(_AnimatorAttack, 0);
+        animator.SetBool(_isGrounded, false);
+        animator.ResetTrigger(_jump2);
+        animator.SetBool(_isstunned, false);
+        animator.SetBool(_isblock, false);
     }
 
     void Update()
@@ -68,6 +92,8 @@ public class EnemyBehaviour : NetworkBehaviour
             }
         }
 
+        animator.SetBool(_isstunned, isStunned);
+
         if (hitByCurrent != 0 && hitByLast == hitByCurrent)
         {
             timeReset = Time.time;
@@ -79,6 +105,11 @@ public class EnemyBehaviour : NetworkBehaviour
         } // Check for hitbox multiplicity of hits
 
         canTakeAction = !(isAttacking || isStunned || attackBuffer.Count > 1);
+
+        isGrounded = rb.position.y < 1.1f;
+        animator.SetBool(_isGrounded, isGrounded);
+
+        animator.SetFloat(_speedHash, rb.velocity.magnitude);
 
         if (GameObject.FindGameObjectWithTag("Player"))
             player = FindClosestPlayer();
@@ -130,7 +161,8 @@ public class EnemyBehaviour : NetworkBehaviour
         {
             if (isGrounded)
             {
-                if (rb.transform.rotation.eulerAngles.y == 0 && isGrounded)
+                if (rb.transform.rotation.eulerAngles.y > -10 &&
+                    rb.transform.rotation.eulerAngles.y < 10)
                     rb.GetComponent<Transform>().Rotate(Vector3.up * 180);
                 tempFacingV3 = Vector3.left + Vector3.up;
             }
@@ -140,7 +172,8 @@ public class EnemyBehaviour : NetworkBehaviour
         {
             if (isGrounded)
             {
-                if (rb.transform.rotation.eulerAngles.y == 180 && isGrounded)
+                if (rb.transform.rotation.eulerAngles.y > 170 &&
+                    rb.transform.rotation.eulerAngles.y < 190)
                     rb.GetComponent<Transform>().Rotate(Vector3.up * -180);
                 tempFacingV3 = Vector3.right + Vector3.up;
             }
@@ -171,7 +204,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
     void Kill()
     {
-        GameObject.Destroy(gameObject);
+        Destroy(gameObject);
     }
 
     public void Knockdown() // Knocks down if needed, called by PlayerAttackHurtboxing
@@ -204,6 +237,7 @@ public class EnemyBehaviour : NetworkBehaviour
 
         attackBuffer.Add(data); // Add the current attack to the attackBuffer
         yield return new WaitForSeconds(data.startupFrames / 60);
+        animator.SetInteger(_AnimatorAttack, data.num);
 
         GameObject soundClip = Instantiate(data.sound, GameObject.Find("Main Camera/audio/").transform); // Sound
 
