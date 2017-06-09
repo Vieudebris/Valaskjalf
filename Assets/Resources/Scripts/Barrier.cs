@@ -51,8 +51,6 @@ public class Barrier : NetworkBehaviour {
 
             script.enable = true;
         }
-
-        turnOff = true;
     }
 
     IEnumerator SmoothCamLock()

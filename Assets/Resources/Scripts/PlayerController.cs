@@ -424,7 +424,8 @@ public class PlayerController : NetworkBehaviour
         {
             if (isGrounded)
             {
-                if (rb.transform.rotation.eulerAngles.y == 0 && isGrounded)
+                if (rb.transform.rotation.eulerAngles.y > -10 &&
+                    rb.transform.rotation.eulerAngles.y < 10)
                     rb.GetComponent<Transform>().Rotate(Vector3.up * 180);
                 tempFacingV3 = Vector3.left + Vector3.up;
             }
@@ -434,7 +435,8 @@ public class PlayerController : NetworkBehaviour
         {
             if (isGrounded)
             {
-                if (rb.transform.rotation.eulerAngles.y == 180 && isGrounded)
+                if (rb.transform.rotation.eulerAngles.y > 170 &&
+                    rb.transform.rotation.eulerAngles.y < 190)
                     rb.GetComponent<Transform>().Rotate(Vector3.up * -180);
                 tempFacingV3 = Vector3.right + Vector3.up;
             }
