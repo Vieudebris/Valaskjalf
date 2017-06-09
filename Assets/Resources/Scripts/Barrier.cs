@@ -2,29 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class Barrier : NetworkBehaviour {
 
     public CameraFollow cameraScript;
     public bool turnOff;
-    public GameObject[] barriers;
     public GameObject spawner;
     public EnemySpawner script;
+    public GameObject left, right;
 
     private bool hasBeenActivated = false;
 
 	// Use this for initialization
 	void Start () {
 
-        barriers = new GameObject[2];
-        barriers[0] = GameObject.Find("left");
-        barriers[1] = GameObject.Find("right");
-
         cameraScript = GameObject.Find("Main Camera").GetComponent<CameraFollow>();
         script = spawner.GetComponent<EnemySpawner>();
 
-        barriers[0].SetActive(false);
-        barriers[1].SetActive(false);
+        left.SetActive(false);
+        right.SetActive(false);
 	}
 
     private void Update()
@@ -33,7 +30,7 @@ public class Barrier : NetworkBehaviour {
         {
             cameraScript.maxXAndY = new Vector2(10000, 10);
             cameraScript.minXAndY = new Vector2(-10000, 0);
-            Destroy(barriers[1]);
+            Destroy(right);
             turnOff = false;
         }
     }
@@ -42,10 +39,11 @@ public class Barrier : NetworkBehaviour {
     {
         if (other.tag == "Player" && !hasBeenActivated)
         {
-            StartCoroutine(SmoothCamLock());
+            if (!(SceneManager.GetActiveScene().name == "Midgard"))
+                StartCoroutine(SmoothCamLock());
 
-            barriers[0].SetActive(true);
-            barriers[1].SetActive(true);
+            left.SetActive(true);
+            right.SetActive(true);
 
             hasBeenActivated = true;
 

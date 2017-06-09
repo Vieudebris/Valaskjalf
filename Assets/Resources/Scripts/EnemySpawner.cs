@@ -23,7 +23,21 @@ public class EnemySpawner : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        relatedBarrier = GameObject.Find("trigger");
+        if (gameObject.tag == "Spawner0")
+            relatedBarrier = GameObject.FindGameObjectWithTag("trigger0");
+
+        if (gameObject.tag == "Spawner1")
+            relatedBarrier = GameObject.FindGameObjectWithTag("trigger1");
+
+        if (gameObject.tag == "Spawner2")
+            relatedBarrier = GameObject.FindGameObjectWithTag("trigger2");
+
+        if (gameObject.tag == "Spawner3")
+            relatedBarrier = GameObject.FindGameObjectWithTag("trigger3");
+
+        if (gameObject.tag == "Spawner4")
+            relatedBarrier = GameObject.FindGameObjectWithTag("trigger4");
+
         barrierScript = relatedBarrier.GetComponentInChildren<Barrier>();
         enemyList = new List<GameObject>();
     }
